@@ -22,7 +22,7 @@
   - 분류 결과에 따라 서보모터의 각도를 조절하여 원하는 위치로 이동
 
 - 사용하는 소자
-  - 적외선 센서
+  - 적외선 센서<br>
   <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img001.jpg"  width="300" height="300"/><br>
   사물을 인식하여 DC 모터 동작을 제어한다.
 
