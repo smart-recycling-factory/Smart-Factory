@@ -21,14 +21,14 @@
 
 - 사용하는 소자
   - 적외선 센서
-    ![적외선 센서](https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img001.jpg)
+  <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img001.jpg"  width="200" height="400"/>
   - 조도 센서
-    ![조도 센서](https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img002.jpg)
+  <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img002.jpg"  width="200" height="400"/>
   - 레이저 모듈
-    ![레이저 모듈](https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img003.jpg)
+  <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img003.jpg"  width="200" height="400"/>
   - 금속 감지 센서
-    ![금속 감지 센서](https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img004.jpg)
+  <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img004.jpg"  width="200" height="400"/>
   - DC 모터
-    ![DC모터](https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img005.jpg)
+  <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img005.jpg"  width="200" height="400"/>
   - 서보 모터
-    ![서보모터](https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img006.jpg)
+  <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img006.jpg"  width="200" height="400"/>
