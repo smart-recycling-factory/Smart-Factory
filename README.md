@@ -22,31 +22,31 @@
 
 - 사용하는 소자
   - 적외선 센서
-  - 사물을 인식하여 DC 모터 동작을 제어한다.
+  사물을 인식하여 DC 모터 동작을 제어한다.
   <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img001.jpg"  width="300" height="300"/>  
 
 
   - 레이저 모듈
-  - 조도 센서와 함께 사용될 광원의 역할을 한다.
+  조도 센서와 함께 사용될 광원의 역할을 한다.
   <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img003.jpg"  width="300" height="300"/>   
 
 
   - 조도 센서
-  - 광원에서 쏘아낸 빛이 물체를 투과하여 얼마나 조도센서에 들어오는지를 통해 사물을 구분
+  광원에서 쏘아낸 빛이 물체를 투과하여 얼마나 조도센서에 들어오는지를 통해 사물을 구분
   <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img002.jpg"  width="300" height="300"/>   
 
 
   - 금속 감지 센서
-  - 금속에 접촉할 경우 전기가 흘러 금속과 비금속을 구분
+  금속에 접촉할 경우 전기가 흘러 금속과 비금속을 구분
   <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img004.jpg"  width="300" height="300"/>   
 
 
   - DC 모터
-  - 적외선 센서를 기반으로 컨베이어 벨트를 동작시킴
+  적외선 센서를 기반으로 컨베이어 벨트를 동작시킴
   <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img005.jpg"  width="300" height="300"/>   
 
 
   - 서보 모터
-  - 조도 센서와 금속 감지 센서에 의해 제어되며 각도의 조절을 통해 사물의 최종 분류를 수행
+  조도 센서와 금속 감지 센서에 의해 제어되며 각도의 조절을 통해 사물의 최종 분류를 수행
   <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img006.jpg"  width="300" height="300"/>   
 
