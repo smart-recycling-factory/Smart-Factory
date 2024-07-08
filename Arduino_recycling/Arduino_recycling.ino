@@ -15,7 +15,8 @@ Servo servo;
 int first_ir_val;
 int second_ir_val;
 int speed_val = 70;  
-int light_val; 
+int light_val;
+bool is_plastic = false;
 
 void setup() {
     Serial.begin(9600);
@@ -29,26 +30,14 @@ void setup() {
 }
 
 void loop() {
+    servoWork(90);
     dcWork();
-    // 레이저 센서 켜기
-      digitalWrite(LASER_PIN, OUTPUT);
-    // 조도 센서
-    light_val = analogRead(LIGHT_SENSOR);
-    // Serial.print("light - ");
-    // Serial.println(light_val); // 값을 정수로 출력
-    // delay(1000);
-    
-    // 금속 감지 센서
-    float metal = analogRead(METAL_SENSOR);  
-    // Serial.print("metal - ");
-    // Serial.println(metal);
-    // if(metal < 500) 
-    //     Serial.println("금속 감지");
-    // Serial.println();
-    // delay(1000);
+    digitalWrite(LASER_PIN, HIGH);                // 레이저 센서 켜기
+    light_val = analogRead(LIGHT_SENSOR);         // 조도 센서
+    float metal = analogRead(METAL_SENSOR);       // 금속 감지 센서
 
-    first_ir_val = digitalRead(IR_SENSOR_FST);
-    second_ir_val = digitalRead(IR_SENSOR_SEC);
+    first_ir_val = digitalRead(IR_SENSOR_FST);    // 적외선 센서
+    second_ir_val = digitalRead(IR_SENSOR_SEC);   // 적외선 센서
     
     // 첫 번째 검사대에서 플라스틱과 종이/캔 분류
     if (first_ir_val == LOW) {
@@ -59,13 +48,18 @@ void loop() {
         Serial.println("plastic");
         delay(1000);
         servoWork(POS_PST);
+        is_plastic = true;
+        // 레이저 끄기
+        digitalWrite(LASER_PIN, LOW);
+        Serial.println("LASER OFF!");
+        dcWork();
       }
       // 종이/캔이면
       else {
         Serial.println("Not plastic");
         delay(1000);
       }
-      dcWork();
+      // dcWork();
     }
 
     // 두 번째 검사대에서 플라스틱과 종이/캔 분류
@@ -80,9 +74,16 @@ void loop() {
       }
       // 종이인 경우
       else {
-        Serial.println("box");
-        delay(1000);
-        servoWork(POS_BOX);
+        if(is_plastic) {
+          Serial.println("plastic");
+          delay(1000);
+          servoWork(POS_PST);
+        }
+        else {
+          Serial.println("box");
+          delay(1000);
+          servoWork(POS_BOX);
+        }
       }
       dcWork();
     }
@@ -95,7 +96,7 @@ void dcWork() {
 
 void dcStop() {
   analogWrite(MOTOR_SPEED, 0);   // 레일 작동 중지
-  delay(2000);
+  delay(1000);
 }
 
 // [!] 이 함수 안에 detach() 쓰면 DC 동작 안 함!
