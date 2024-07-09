@@ -30,50 +30,50 @@ void setup() {
     pinMode(IR_SENSOR_FST, INPUT);          // 적외선 센서 핀을 pinmode_INPUT으로 지정
     pinMode(IR_SENSOR_SEC, INPUT);          // 적외선 센서 핀을 pinmode_INPUT으로 지정
     digitalWrite(MOTER_DIRECTION, LOW);     // 방향은 전진. 의도한 방향과 반대일 경우 HIGH -> LOW로 변경
-    analogWrite(MOTOR_SPEED, speed_val);    // 레일 작동 시작
 }
 
 void loop() {
+  String str = "";
+  if (Serial.available() > 0) {
+    str = Serial.readStringUntil('\n');
+  }
+  
+  if (str == "go") { 
     servoWork(90);
     dcWork();
     digitalWrite(LASER_PIN, HIGH);                // 레이저 센서 켜기
-    // light_val = analogRead(LIGHT_SENSOR);         // 조도 센서
-    // float metal = analogRead(METAL_SENSOR);       // 금속 감지 센서
-
     first_ir_val = digitalRead(IR_SENSOR_FST);    // 적외선 센서
     second_ir_val = digitalRead(IR_SENSOR_SEC);   // 적외선 센서
     
-    // 첫 번째 검사대에서 플라스틱과 종이/캔 분류
+    // 첫 번째 검사대에서 조도센서로 플라스틱과 종이/캔 분류
     if (first_ir_val == LOW) {
       is_plastic = false;
       Serial.println("detected 1");
       dcStop();
-      light_val = analogRead(LIGHT_SENSOR);         // 조도 센서
+      // 조도 센서
+      light_val = analogRead(LIGHT_SENSOR);  
 
       // 플라스틱이면
       if (light_val > 900) {
         Serial.println("plastic");
         delay(1000);
         is_plastic = true;
-
-        // // 레이저 끄기
-        // digitalWrite(LASER_PIN, LOW);
-        // delay(5000);
-        // Serial.println("LASER OFF!");
       }
       // 종이/캔이면
       else {
-        Serial.println("Not plastic!!");
+        Serial.println("Not plastic!");
         delay(1000);
       }
       dcWork();
     }
 
-    // 두 번째 검사대에서 플라스틱과 종이/캔 분류
+    // 두 번째 검사대에서 조도센서로 종이/캔 분류 및 물체별 서보모터 동작
     if (second_ir_val == LOW) {
       Serial.println("detected 2");
       dcStop();
-      float metal = analogRead(METAL_SENSOR);       // 금속 감지 센서
+      // 금속 감지 센서
+      float metal = analogRead(METAL_SENSOR);
+
       // 캔인 경우
       if (metal < 500) {
         Serial.println("can");
@@ -98,24 +98,32 @@ void loop() {
         box_count += 1;
       }
       dcWork();
+      delay(2000);    // 서보모터 초기화까지의 시간을 벌기 위함
+      // DB 저장 미리 확인
+      Serial.print("pst - ");
+      Serial.println(pst_count);
+      // delay(1000);
+      Serial.print("box - ");
+      Serial.println(box_count);
+      // delay(1000);
+      Serial.print("can - ");
+      Serial.println(can_count);
+      // delay(1000);
     }
+  } 
 
-    // DB 저장 미리 확인
-    Serial.print("pst - ");
-    Serial.println(pst_count);
-    Serial.print("box - ");
-    Serial.println(box_count);
-    Serial.print("can - ");
-    Serial.println(can_count);
+  else if (str == "stop") {
+    dcStop();
+  }
 }
 
 void dcWork() {
   digitalWrite(MOTER_DIRECTION, LOW);
-  analogWrite(MOTOR_SPEED, speed_val);   // 레일 작동 시작
+  analogWrite(MOTOR_SPEED, speed_val);    // 레일 작동 시작
 }
 
 void dcStop() {
-  analogWrite(MOTOR_SPEED, 0);   // 레일 작동 중지
+  analogWrite(MOTOR_SPEED, 0);            // 레일 작동 중지
   delay(1500);
 }
 
