@@ -157,3 +157,10 @@
 - 각 소자간 연동
 
 - wpf 디자인 시작
+  <img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img007.jpg"  width="300" height="300"/><br>   
+처음 구상했던 UI Design<br>
+
+<img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img008.jpg"  width="300" height="300"/><br>   
+팀원들과 회의후 디자인을 바꾼결과<br>
+<img src="https://raw.githubusercontent.com/c9yu/Smart-Factory/dev/imgs/img009.jpg"  width="300" height="300"/>
+   
