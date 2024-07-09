@@ -18,6 +18,10 @@ int speed_val = 70;
 int light_val;
 bool is_plastic = false;
 
+int pst_count = 0;
+int box_count = 0;
+int can_count = 0;
+
 void setup() {
     Serial.begin(9600);
     Serial.println("Arduino starts!");
@@ -33,60 +37,76 @@ void loop() {
     servoWork(90);
     dcWork();
     digitalWrite(LASER_PIN, HIGH);                // 레이저 센서 켜기
-    light_val = analogRead(LIGHT_SENSOR);         // 조도 센서
-    float metal = analogRead(METAL_SENSOR);       // 금속 감지 센서
+    // light_val = analogRead(LIGHT_SENSOR);         // 조도 센서
+    // float metal = analogRead(METAL_SENSOR);       // 금속 감지 센서
 
     first_ir_val = digitalRead(IR_SENSOR_FST);    // 적외선 센서
     second_ir_val = digitalRead(IR_SENSOR_SEC);   // 적외선 센서
     
     // 첫 번째 검사대에서 플라스틱과 종이/캔 분류
     if (first_ir_val == LOW) {
+      is_plastic = false;
       Serial.println("detected 1");
       dcStop();
+      light_val = analogRead(LIGHT_SENSOR);         // 조도 센서
+
       // 플라스틱이면
       if (light_val > 900) {
         Serial.println("plastic");
         delay(1000);
-        servoWork(POS_PST);
         is_plastic = true;
-        // 레이저 끄기
-        digitalWrite(LASER_PIN, LOW);
-        Serial.println("LASER OFF!");
-        dcWork();
+
+        // // 레이저 끄기
+        // digitalWrite(LASER_PIN, LOW);
+        // delay(5000);
+        // Serial.println("LASER OFF!");
       }
       // 종이/캔이면
       else {
-        Serial.println("Not plastic");
+        Serial.println("Not plastic!!");
         delay(1000);
       }
-      // dcWork();
+      dcWork();
     }
 
     // 두 번째 검사대에서 플라스틱과 종이/캔 분류
     if (second_ir_val == LOW) {
       Serial.println("detected 2");
       dcStop();
+      float metal = analogRead(METAL_SENSOR);       // 금속 감지 센서
       // 캔인 경우
       if (metal < 500) {
         Serial.println("can");
         delay(1000);
         servoWork(POS_CAN);
+        can_count += 1;
+      }
+      // 플라스틱인 경우
+      else if(is_plastic) {
+          Serial.println("plastic");
+          Serial.println(is_plastic);
+          delay(1000);
+          servoWork(POS_PST);
+          pst_count += 1;
       }
       // 종이인 경우
       else {
-        if(is_plastic) {
-          Serial.println("plastic");
-          delay(1000);
-          servoWork(POS_PST);
-        }
-        else {
-          Serial.println("box");
-          delay(1000);
-          servoWork(POS_BOX);
-        }
+        Serial.println("box");
+        Serial.println(is_plastic);
+        delay(1000);
+        servoWork(POS_BOX);
+        box_count += 1;
       }
       dcWork();
     }
+
+    // DB 저장 미리 확인
+    Serial.print("pst - ");
+    Serial.println(pst_count);
+    Serial.print("box - ");
+    Serial.println(box_count);
+    Serial.print("can - ");
+    Serial.println(can_count);
 }
 
 void dcWork() {
@@ -96,13 +116,13 @@ void dcWork() {
 
 void dcStop() {
   analogWrite(MOTOR_SPEED, 0);   // 레일 작동 중지
-  delay(1000);
+  delay(1500);
 }
 
 // [!] 이 함수 안에 detach() 쓰면 DC 동작 안 함!
 void servoWork(int box) {
-  delay(1000);
+  delay(500);
   servo.attach(SERVO_PIN);
   servo.write(box);
-  delay(1000);
+  delay(500);
 }
