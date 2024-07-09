@@ -45,24 +45,41 @@
                         </Border>
 
                         <!-- Menu Titles-->
-                        <TextBlock Text="분리수거 관리 프로그램" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                        <TextBlock Text="분리수거 관리 프로그램" Foreground="White" FontSize="16" FontWeight="SemiBold"
                                    DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
                         <TextBlock Text="Iot2조" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
                                    DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
 
+                        <!-- Button StackPanel for LOGIN and LOGOUT -->
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
+                            <TextBlock Text="LOGIN" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+                            <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
+                                        IsHitTestVisible="False"/>
+                            <TextBlock Text="LOGOUT" Foreground="White" FontSize="10" 
+                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_1"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
+                            <TextBlock Text="ON" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_2" />
+                            <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
+                                        IsHitTestVisible="False"/>
+                            <TextBlock Text="OFF" Foreground="White" FontSize="10" 
+                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_3" />
+                        </StackPanel>
                         <!-- Menu Seprator-->
-                        <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc" />
+                        <Separator Margin="15" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc" />
 
                         <!-- Menu Buttons -->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click_main">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuBottomIcon}"/>
                                     <TextBlock Text="Home" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
                                     <TextBlock Text="Graph" />
@@ -75,16 +92,6 @@
                                     <TextBlock Text="Management" />
                                 </StackPanel>
                             </Button>
-
-
-                            <Button Style="{StaticResource menuButton}">
-                                <StackPanel Orientation="Horizontal">
-                                    <icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuBottomIcon}"/>
-                                    <TextBlock Text="Logout" />
-                                </StackPanel>
-                            </Button>
-
-
                         </StackPanel>
                     </DockPanel>
                 </Border>
@@ -109,21 +116,20 @@
                     <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
                                Panel.ZIndex="1" Text="Serch here..."
                                Visibility="{Binding ElementName=txtSearch, Converter={StaticResource BoolToVis}}"/>
-                    
+
                     <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}"/>
 
                     <icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
                                            Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
                 </Grid>
-                
+
                 <!-- Top Buttons -->
-                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc" HorizontalAlignment="Right">
-                    <icon:PackIconMaterial Kind="Cog"/>
+                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc"
+                        HorizontalAlignment="Right" Click="Button_Click">
+                    <icon:PackIconVaadinIcons Kind="Exit"/>
                 </Button>
 
-                <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right">
-                    <icon:PackIconMaterial Kind="Bell"/>
-                </Button>
+
 
                 <!-- Page Title -->
                 <TextBlock Text="Members" Grid.Row="1" FontWeight="SemiBold" Margin="0 20 0 0"
@@ -215,7 +221,7 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-                
+
                 <!-- Pagination Section -->
                 <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
                         CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
@@ -235,7 +241,7 @@
                         <Button Style="{StaticResource pagingButton}" Content="7"/>
                         <Button Style="{StaticResource pagingButton}" Content="8"/>
                         <Button Style="{StaticResource pagingButton}" Content="9"/>
-                        
+
                         <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
 
                         <Button Style="{StaticResource pagingButton}">

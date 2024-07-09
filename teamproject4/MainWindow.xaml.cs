@@ -13,7 +13,7 @@ namespace teamproject4
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -69,6 +69,52 @@ namespace teamproject4
             //membersDataGrid.ItemSource = members;\
             membersDataGrid.ItemsSource = members;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbresult = MessageBox.Show("종료 창", "종료하시겠습니까?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (MessageBoxResult.Yes == mbresult)
+            {
+                //Close();
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+            }
+        }
+
+        private void Button_Click_main(object sender, RoutedEventArgs e)
+        {
+            var Firstpage = new firstpage();
+            Firstpage.Owner = this;
+            Firstpage.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            Firstpage.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var graphpage = new Graphpage();
+            graphpage.Owner = this;
+            graphpage.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            graphpage.ShowDialog();
+        }
+
+        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_MouseLeftButtonUp_3(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 
     public class Member
@@ -76,10 +122,12 @@ namespace teamproject4
         public string Character { get; set; }
         public string Number { get; set; }
         public string Name { get; set; }
-        public string Position {  get; set; }
+        public string Position { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public Brush BgColor { get; set; }
-
+        public Brush BgColor
+        {
+            get; set;
+        }
     }
 }
