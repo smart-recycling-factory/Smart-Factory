@@ -1,0 +1,114 @@
+﻿<Window x:Class="teamproject4.firstpage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:teamproject4"
+        mc:Ignorable="d"
+        Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="#ffffff">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Menu -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Menu icon-->
+            <Button Margin=" 20 28 0 35" Style="{StaticResource topButton}">
+                <icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+            </Button>
+
+            <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 30">
+                <DockPanel>
+                    <!-- Menu Logo -->
+                    <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
+                                DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/FontAwesome-UserCircleRegular.png" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+
+                    <!-- Menu Titles-->
+                    <TextBlock Text="분리수거 관리 프로그램" Foreground="White" FontSize="16" FontWeight="SemiBold"
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10" />
+                    <TextBlock Text="Iot2조" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
+
+                    <!-- Button StackPanel for LOGIN and LOGOUT -->
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
+                        <TextBlock Text="LOGIN" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                    Cursor="Hand"  MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+                        <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
+                                    IsHitTestVisible="False"/>
+                        <TextBlock Text="LOGOUT" Foreground="White" FontSize="10" 
+                                    Cursor="Hand"  MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_1"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
+                        <TextBlock Text="ON" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                    Cursor="Hand"  MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_2"/>
+                        <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
+                                    IsHitTestVisible="False"/>
+                        <TextBlock Text="OFF" Foreground="White" FontSize="10" 
+                                    Cursor="Hand"  MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_3"/>
+                    </StackPanel>
+                    
+                    <!-- Menu Seprator-->
+                    <Separator Margin="15" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc" />
+
+                    <!-- Menu Buttons -->
+                    <StackPanel DockPanel.Dock="Top">
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuBottomIcon}"/>
+                                <TextBlock Text="Home" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
+                            <StackPanel Orientation="Horizontal">
+                                <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
+                                <TextBlock Text="Graph" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}" Click="Button_Click_management">
+                            <StackPanel Orientation="Horizontal">
+                                <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}"/>
+                                <TextBlock Text="Management" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <!-- Main Section-->
+        <Grid Grid.Column="1" Margin="30 20 20 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+
+            <!-- Top Buttons -->
+            <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc"
+                            HorizontalAlignment="Right" Click="Button_Click" Grid.Row="0" Grid.Column="2">
+                <icon:PackIconVaadinIcons Kind="Exit"/>
+            </Button>
+            <Label Grid.Row="0" Content="환영합니다" Foreground="Coral" FontSize="20"  Width="400" HorizontalAlignment="Left"/>
+            <Image Grid.Row="1" Source="/바탕이미지.png" Height="600"/>
+
+
+        </Grid>
+    </Grid>
+</Window>

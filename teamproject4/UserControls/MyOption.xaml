@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="teamproject4.UserControls.MyOption"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:teamproject4.UserControls"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" Name="myOption">
+    
+    <StackPanel Orientation="Horizontal">
+        <Button Style="{StaticResource button}">
+            <icon:PackIconFontAwesome Kind="{Binding Path=Icon, ElementName=myOption}" Width="15" Height="15" Foreground="White"/>
+        </Button>
+
+        <TextBlock Text="{Binding Path=Text, ElementName=myOption}" Foreground="#363636" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="SemiBold"/>
+    </StackPanel>
+</UserControl>
