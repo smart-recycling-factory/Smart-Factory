@@ -23,8 +23,6 @@ namespace teamproject4
         {
             InitializeComponent();
         }
-<<<<<<< Updated upstream
-=======
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -33,6 +31,5 @@ namespace teamproject4
                 this.DragMove();
             }
         }
->>>>>>> Stashed changes
     }
 }

@@ -10,17 +10,6 @@ namespace teamproject4.Models
     {
         public class Member
         {
-<<<<<<< Updated upstream
-            public string Character { get; set; }
-            public string Number { get; set; }
-            public string Name { get; set; }
-            public string Position { get; set; }
-            public string Email { get; set; }
-            public string Phone { get; set; }
-            //public Brush BgColor { get; set; }
-
-            //public static readonly string SELECT_QUERY = 
-=======
             public int employeeId { get; set; }
             public string name { get; set; }
             public string gender { get; set; }
@@ -97,7 +86,6 @@ namespace teamproject4.Models
                                                                       FROM [dbo].[result]";
 
             public static readonly string DELETE_QUERY = @"DELETE FROM [dbo].[result]";
->>>>>>> Stashed changes
 
         }
     }
