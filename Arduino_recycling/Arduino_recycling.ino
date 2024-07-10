@@ -22,18 +22,22 @@ int pst_count = 0;
 int box_count = 0;
 int can_count = 0;
 
+String str;     // 시리얼 통신 입력값을 전역변수로 선언!
+
 void setup() {
     Serial.begin(9600);
     Serial.println("Arduino starts!");
     pinMode(MOTER_DIRECTION, OUTPUT);       // dc모터의 방향을 제어하는 핀을 output으로 설정
     pinMode(LASER_PIN, OUTPUT);             // 레이저핀을 pinmode_OUTPUT으로 지정
+    pinMode(LIGHT_SENSOR, INPUT);           // 조도 센서 핀을 INPUT으로 지정
+    pinMode(METAL_SENSOR, INPUT);           // 금속 탐지 센서 핀을 INPUT으로 지정
     pinMode(IR_SENSOR_FST, INPUT);          // 적외선 센서 핀을 pinmode_INPUT으로 지정
     pinMode(IR_SENSOR_SEC, INPUT);          // 적외선 센서 핀을 pinmode_INPUT으로 지정
     digitalWrite(MOTER_DIRECTION, LOW);     // 방향은 전진. 의도한 방향과 반대일 경우 HIGH -> LOW로 변경
+    servo.attach(SERVO_PIN);                // 서보모터 초기화
 }
 
 void loop() {
-  String str = "";
   if (Serial.available() > 0) {
     str = Serial.readStringUntil('\n');
   }
@@ -84,7 +88,7 @@ void loop() {
       // 플라스틱인 경우
       else if(is_plastic) {
           Serial.println("plastic");
-          Serial.println(is_plastic);
+          // Serial.println(is_plastic);
           delay(1000);
           servoWork(POS_PST);
           pst_count += 1;
@@ -92,7 +96,7 @@ void loop() {
       // 종이인 경우
       else {
         Serial.println("box");
-        Serial.println(is_plastic);
+        // Serial.println(is_plastic);
         delay(1000);
         servoWork(POS_BOX);
         box_count += 1;
@@ -130,7 +134,7 @@ void dcStop() {
 // [!] 이 함수 안에 detach() 쓰면 DC 동작 안 함!
 void servoWork(int box) {
   delay(500);
-  servo.attach(SERVO_PIN);
+  // servo.attach(SERVO_PIN);
   servo.write(box);
   delay(500);
 }
