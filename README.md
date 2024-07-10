@@ -92,10 +92,8 @@
 
   - 금속 감지 센서
   ```c
-  float prev = 0
-
   void loop(){
-    float metal = analogRead(3);
+    float metal = analogRead(A3);
     Serial.println(metal);
     if(metal < 950) // 출력되는 값이 974~973 정도로 균일하게 출력되므로 950정도로 오차값을 고려하여 구분을 진행
         Serial.println(" - touch"); // 금속과 접촉시 '- touch'를 출력
@@ -140,7 +138,7 @@
   #include <Servo.h>
   #define SERVO_PIN 9
 
-  Servo = servo
+  Servo servo;
 
   void setup(){
     servo.attach(SERVO_PIN);                // 서보모터를 아두이노와 연결
@@ -157,3 +155,139 @@
 - 각 소자간 연동
 
 - wpf 디자인 시작
+
+## 4일차 (2024-07-05)
+- 각 센서의 연동
+
+## 5일차 (2024-07-08)
+<img src="https://raw.githubusercontent.com/smart-recycling-factory/Smart-Factory/dev/imgs/img007.png"/><br>
+
+- 각 센서의 연동
+  - 위치 ① 동작 순서
+    - 적외선 센서 : 물체 감지 &rarr; dc모터 정지
+    - 조도 센서 : 900 이상 &rarr; 플라스틱으로 판단
+    - 서보 모터 : 각도 2°(플라스틱) 조절
+    - ~~레이저 모듈 : off~~
+    
+      ```c
+      /* 로그 출력, 딜레이는 표시생략 */
+      if (first_ir_val == LOW) {        // 적외선 센서 감지 시
+        dcStop();                       // dc모터 정지
+        // 플라스틱
+        if (light_val > 900) {          // 조도센서의 값이 900보다 크면
+          servoWork(POS_PST);           // 서보모터 각도 2° 조절
+          is_plastic = true;            // false로 선언된 플래그변수를 true로 설정
+
+          digitalWrite(LASER_PIN, LOW); // 레이저 off (동작안함)
+          dcWork();                     // dc모터 시작 (동작안함)
+        }
+        // 종이 | 캔
+        else { 
+          // 플라스틱이 아님을 출력 후 continue
+        }
+      }
+      ```
+
+  - 위치 ② 동작 순서
+    - 적외선 센서 : 물체 감지 &rarr; dc모터 정지
+    - 금속 센서 : 감지되면(값이 떨어지면) &rarr; 캔으로 판단, 아닐경우 종이
+    - 서보 모터 : 각도 35°(캔) | 57°(종이) 조절
+
+      ```c
+      /* 로그 출력, 딜레이는 표시생략 */
+      if (second_ir_val == LOW) {     // 적외선 센서 감지 시
+        dcStop();                     // dc모터 정지
+        // 경우1 : 캔
+        if (metal < 500) {            // 금속센서의 값이 500 아래로 떨어지면
+          servoWork(POS_CAN);         // 서보모터 각도 35° 조절
+        }
+        // 경우2 : 종이
+        else {
+        if(is_plastic) {              // is_plastic == true, 즉 ①에서 플라스틱이면
+            servoWork(POS_PST);       // 서보모터 각도 2° 조절
+          }
+          else {
+            servoWork(POS_BOX);       // 서보모터 각도 57° 조절
+          }
+        }
+      }
+      ```
+
+- 문제점❗❗
+  - ①의 위치
+    - ❌ 하나의 물체(종이, 캔)가 이동함에 따라 값의 변동 발생 ❌
+      <p>하나의 물체에 대한 센서값은 물체가 분류완료될 때까지 해당 값을 가지고 있어야 한다.<br>
+      하지만 dc모터가 재가동됨에 따라 물체가 ①에서 벗어날 때 값이 재입력된다.(분류결과가 달라짐)<br>
+      => 900이하(종이,캔) &rarr; 900이상(플라스틱)❗❗
+      </p>
+  
+    - ❌ 적외선 센서 감지 이후 dc모터 동작x ❌
+      <p>적외선 센서에 물체가 감지되면 dc모터를 멈추고 조도센서 값을 읽어낸다. <br>
+      값을 읽은 후 dc모터가 재가동되어 ②의 위치로 이동해야 한다. <br>
+      하지만 적외선 센서에 물체가 감지되고 있는 상태에서 물체를 감지범위 밖으로 이동시키지 않는 한 dc모터가 재가동되지 않는다.(무한정지상태)❗❗
+      </p> 
+
+  - ②의 위치
+    - ❌ 금속센서 : 종이/캔 분류 &rarr; 예외발생 ❌
+      <p>종이/캔 중 금속센서에 감지되지 않는 것은 종이로 분류한다. <br>
+      하지만 ①에서 플라스틱으로 분류된 물체 또한 ②에서 금속센서에 감지되지 않아 플라스틱이 종이로 분류되게 된다❗❗
+      </p>
+
+## 6일차 (2024-07-09)
+- 시리얼 통신
+  - go 입력 시 프로그램 실행
+  - stop 입력 시 동작 중지
+
+  ```c
+  void loop() {
+    String str = "";
+    if (Serial.available() > 0) {
+      // 줄바꿈 문자(\n)가 나타날 때까지의 모든 문자열을 읽어와 str에 저장
+      str = Serial.readStringUntil('\n');
+    }
+    // go 입력 시 분류 시작
+    if (str == "go") {
+      // 컨베이어 벨트 동작, 레이저 on, 적외선 센서 값 읽기
+      // 첫 번째 검사대에서 조도센서로 플라스틱과 종이/캔 분류
+      if (first_ir_val == LOW) {
+        // ...
+      }
+
+      // 두 번째 검사대에서 조도센서로 종이/캔 분류 및 물체별 서보모터 동작
+      if (second_ir_val == LOW) {
+        // ...
+      }
+    } 
+    // stop 입력 시 컨베이어 벨트 동작 중지
+    else if (str == "stop") {
+      dcStop();
+    }
+  }
+  ```
+
+- 문제점❗❗
+  - ❌ 물체가 감지된 후에도 적외선 센서 값이 바뀌지 않음 ❌
+    <p>loop()가 돌면서 str 값이 공백으로 초기화되어 조건문이 성립될 수 없음❗❗</p>
+
+  ```c
+  String str;
+  void loop() {
+    if (Serial.available() > 0) {
+      str = Serial.readStringUntil('\n');
+    }
+    if (str == "go") {
+      if (first_ir_val == LOW) {
+        // ...
+      }
+      if (second_ir_val == LOW) {
+        // ...
+      }
+    } 
+    else if (str == "stop") {
+      dcStop();
+    }
+  }
+  ```
+  - ✅ str 변수를 전역변수로 선언함으로써 루프를 한 번 도는 동안 시리얼 모니터에서 입력한 값이 유지됨
+  
+## 7일차 (2024-07-10)
