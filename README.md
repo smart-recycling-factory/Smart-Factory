@@ -108,10 +108,8 @@
 
   - 금속 감지 센서
   ```c
-  float prev = 0
-
   void loop(){
-    float metal = analogRead(3);
+    float metal = analogRead(A3);
     Serial.println(metal);
     if(metal < 950) // 출력되는 값이 974~973 정도로 균일하게 출력되므로 950정도로 오차값을 고려하여 구분을 진행
         Serial.println(" - touch"); // 금속과 접촉시 '- touch'를 출력
@@ -156,7 +154,7 @@
   #include <Servo.h>
   #define SERVO_PIN 9
 
-  Servo = servo
+  Servo servo;
 
   void setup(){
     servo.attach(SERVO_PIN);                // 서보모터를 아두이노와 연결
@@ -252,3 +250,60 @@
       </p>
 
 ## 6일차 (2024-07-09)
+- 시리얼 통신
+  - go 입력 시 프로그램 실행
+  - stop 입력 시 동작 중지
+
+  ```c
+  void loop() {
+    String str = "";
+    if (Serial.available() > 0) {
+      // 줄바꿈 문자(\n)가 나타날 때까지의 모든 문자열을 읽어와 str에 저장
+      str = Serial.readStringUntil('\n');
+    }
+    // go 입력 시 분류 시작
+    if (str == "go") {
+      // 컨베이어 벨트 동작, 레이저 on, 적외선 센서 값 읽기
+      // 첫 번째 검사대에서 조도센서로 플라스틱과 종이/캔 분류
+      if (first_ir_val == LOW) {
+        // ...
+      }
+
+      // 두 번째 검사대에서 조도센서로 종이/캔 분류 및 물체별 서보모터 동작
+      if (second_ir_val == LOW) {
+        // ...
+      }
+    } 
+    // stop 입력 시 컨베이어 벨트 동작 중지
+    else if (str == "stop") {
+      dcStop();
+    }
+  }
+  ```
+
+- 문제점❗❗
+  - ❌ 물체가 감지된 후에도 적외선 센서 값이 바뀌지 않음 ❌
+    <p>loop()가 돌면서 str 값이 공백으로 초기화되어 조건문이 성립될 수 없음❗❗</p>
+
+  ```c
+  String str;
+  void loop() {
+    if (Serial.available() > 0) {
+      str = Serial.readStringUntil('\n');
+    }
+    if (str == "go") {
+      if (first_ir_val == LOW) {
+        // ...
+      }
+      if (second_ir_val == LOW) {
+        // ...
+      }
+    } 
+    else if (str == "stop") {
+      dcStop();
+    }
+  }
+  ```
+  - ✅ str 변수를 전역변수로 선언함으로써 루프를 한 번 도는 동안 시리얼 모니터에서 입력한 값이 유지됨
+  
+## 7일차 (2024-07-10)
