@@ -1,24 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-<<<<<<< Updated upstream
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-namespace teamproject4
-{
-    /// <summary>
-    /// Graphpage.xaml에 대한 상호 작용 논리
-    /// </summary>
-=======
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
@@ -34,14 +15,11 @@ using teamproject4.Helpers; // Ensure to add this using statement
 
 namespace teamproject4
 {
->>>>>>> Stashed changes
     public partial class Graphpage : Window
     {
         public Graphpage()
         {
             InitializeComponent();
-<<<<<<< Updated upstream
-=======
             DataContext = this;
             LoadChartData();
         }
@@ -121,7 +99,7 @@ namespace teamproject4
                     {
                         Color = SKColors.Gray,
                         StrokeThickness = 2
-                    }
+                    },
                 }
             };
 
@@ -134,7 +112,6 @@ namespace teamproject4
                     Fill = new SolidColorPaint(new SKColor(255, 0, 0, 50))
                 }
             };
->>>>>>> Stashed changes
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -158,32 +135,10 @@ namespace teamproject4
             MessageBoxResult mbresult = MessageBox.Show("종료 창", "종료하시겠습니까?", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (MessageBoxResult.Yes == mbresult)
             {
-<<<<<<< Updated upstream
-                //Close();
-=======
->>>>>>> Stashed changes
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
         }
 
-<<<<<<< Updated upstream
-        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_MouseLeftButtonUp_3(object sender, MouseButtonEventArgs e)
-=======
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) { }
         private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e) { }
         private void TextBlock_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e) { }
@@ -195,7 +150,6 @@ namespace teamproject4
         public ObservableCollection<RectangularSection> Sections { get; set; }
 
         private void Pixelchart_MouseDown(object sender, MouseButtonEventArgs e)
->>>>>>> Stashed changes
         {
 
         }

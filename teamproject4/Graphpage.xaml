@@ -8,11 +8,7 @@
         xmlns:vms="clr-namespace:teamproject4.view"
         xmlns:local="clr-namespace:teamproject4"
         mc:Ignorable="d"
-<<<<<<< Updated upstream
-         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
-=======
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
->>>>>>> Stashed changes
         AllowsTransparency="True" Background="#ffffff">
 
     <Grid>
@@ -29,11 +25,7 @@
             </Grid.RowDefinitions>
 
             <!-- Menu icon-->
-<<<<<<< Updated upstream
-            <Button Margin=" 20 28 0 35" Style="{StaticResource topButton}">
-=======
             <Button Margin="20 28 0 35" Style="{StaticResource topButton}">
->>>>>>> Stashed changes
                 <icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
             </Button>
 
@@ -99,11 +91,7 @@
                                 <TextBlock Text="Management" />
                             </StackPanel>
                         </Button>
-<<<<<<< Updated upstream
-                      
-=======
 
->>>>>>> Stashed changes
                     </StackPanel>
                 </DockPanel>
             </Border>
@@ -118,13 +106,10 @@
 
             <Label Grid.Column="1" Content="그래프 페이지" FontSize="15" Foreground="Coral" />
 
-<<<<<<< Updated upstream
-=======
             
             <lvc:CartesianChart Name="Pixelchart" Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" Sections="{Binding Sections}" Grid.Row="1" MouseDown="Pixelchart_MouseDown"  TooltipPosition="Hidden" EasingFunction="{x:Null}" ZoomMode="X"
                                     Grid.Column="1"/>
             
->>>>>>> Stashed changes
             <!-- Top Buttons -->
             <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc"
                         HorizontalAlignment="Right" Grid.Row="0" Grid.Column="2" Click="Button_Click_2">

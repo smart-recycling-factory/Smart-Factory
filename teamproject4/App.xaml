@@ -510,9 +510,6 @@
         </Style>
         
         <!-- #endregion -->
-<<<<<<< Updated upstream
-    
-=======
 
 
         <Style x:Key="buttonBlack" TargetType="Button">
@@ -649,6 +646,5 @@
             </Style.Triggers>
         </Style>
 
->>>>>>> Stashed changes
     </Application.Resources>
 </Application>
