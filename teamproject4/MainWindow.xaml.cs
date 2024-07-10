@@ -16,6 +16,76 @@ namespace teamproject4
             InitializeComponent();
         }
 
+        /* 처음만 Login
+        // Login 클릭
+        private void TxtLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            membership Membership = new membership();
+            Membership.Topmost = true;
+            Membership.ShowDialog();
+        }
+        */
+
+        // Logout 클릭
+        private void TxtLogout_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var res = MessageBox.Show("로그아웃 하시겠습니까?", "로그아웃창", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.Yes)
+            {
+                this.Hide();
+                firstpage Firstpage = new firstpage();
+                Firstpage.ShowDialog();
+            }
+        }
+
+        // On 클릭
+        private void TxtOn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        // Off 클릭
+        private void TxtOff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        /* 활성화 필요없음
+        // Home 버튼 클릭
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            firstpage Firstpage = new firstpage();
+            Firstpage.ShowDialog();
+        }
+        */
+
+        // Graph 버튼 클릭
+        private void BtnGraph_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Graphpage graphpage = new Graphpage();
+            graphpage.Topmost = true;
+            graphpage.ShowDialog();
+        }
+
+        // Management 버튼 클릭
+        private void BtnManagement_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Topmost = true;
+            mainwindow.ShowDialog();
+        }
+
+        // 프로그램 종료 버튼
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            var res = MessageBox.Show("종료하시겠습니까?", "종료창", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.Yes) Environment.Exit(0);
+        }
+
+
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -68,52 +138,6 @@ namespace teamproject4
 
             //membersDataGrid.ItemSource = members;\
             membersDataGrid.ItemsSource = members;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult mbresult = MessageBox.Show("종료 창", "종료하시겠습니까?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (MessageBoxResult.Yes == mbresult)
-            {
-                //Close();
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
-            }
-        }
-
-        private void Button_Click_main(object sender, RoutedEventArgs e)
-        {
-            var Firstpage = new firstpage();
-            Firstpage.Owner = this;
-            Firstpage.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            Firstpage.ShowDialog();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            var graphpage = new Graphpage();
-            graphpage.Owner = this;
-            graphpage.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            graphpage.ShowDialog();
-        }
-
-        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_MouseLeftButtonUp_3(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 

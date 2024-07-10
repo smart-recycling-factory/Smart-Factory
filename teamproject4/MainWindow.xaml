@@ -52,44 +52,43 @@
 
                         <!-- Button StackPanel for LOGIN and LOGOUT -->
                         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                            <TextBlock Text="LOGIN" Foreground="White" FontSize="10"  Margin="0 0 10 0"
-                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+                            <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="Silver" FontSize="10"  Margin="0 0 10 0" />
                             <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
-                                        IsHitTestVisible="False"/>
-                            <TextBlock Text="LOGOUT" Foreground="White" FontSize="10" 
-                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_1"/>
+                                       IsHitTestVisible="False"/>
+                            <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="White" FontSize="10" 
+                                        Cursor="Hand"  MouseLeftButtonUp="TxtLogout_MouseLeftButtonUp"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                            <TextBlock Text="ON" Foreground="White" FontSize="10"  Margin="0 0 10 0"
-                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_2" />
+                            <TextBlock x:Name="TxtOn" Text="ON" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                        Cursor="Hand"  MouseLeftButtonUp="TxtOn_MouseLeftButtonUp"/>
                             <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
                                         IsHitTestVisible="False"/>
-                            <TextBlock Text="OFF" Foreground="White" FontSize="10" 
-                                        Cursor="Hand" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_3" />
+                            <TextBlock x:Name="TxtOff" Text="OFF" Foreground="White" FontSize="10" 
+                                        Cursor="Hand"  MouseLeftButtonUp="TxtOff_MouseLeftButtonUp"/>
                         </StackPanel>
                         <!-- Menu Seprator-->
                         <Separator Margin="15" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc" />
 
                         <!-- Menu Buttons -->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button Style="{StaticResource menuButton}" Click="Button_Click_main">
+                            <Button x:Name="BtnHome" Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuBottomIcon}"/>
                                     <TextBlock Text="Home" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
+                            <Button x:Name="BtnGraph" Style="{StaticResource menuButton}" Click="BtnGraph_Click" >
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
                                     <TextBlock Text="Graph" />
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button x:Name="BtnManagement" Style="{StaticResource menuButton}" Click="BtnManagement_Click">
                                 <StackPanel Orientation="Horizontal">
-                                    <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}"/>
-                                    <TextBlock Text="Management" />
+                                    <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}" Foreground="White"/>
+                                    <TextBlock Text="Management" Foreground="White" />
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -124,8 +123,9 @@
                 </Grid>
 
                 <!-- Top Buttons -->
-                <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc"
-                        HorizontalAlignment="Right" Click="Button_Click">
+
+                <Button x:Name="BtnExit" Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc"
+                HorizontalAlignment="Right" Click="BtnExit_Click" Grid.Row="0" Grid.Column="2">
                     <icon:PackIconVaadinIcons Kind="Exit"/>
                 </Button>
 
