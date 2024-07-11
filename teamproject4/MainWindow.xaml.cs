@@ -129,9 +129,13 @@ namespace teamproject4
             membersDataGrid.ItemsSource = members;
         }
 
-        private void BtnHome_Click_1(object sender, RoutedEventArgs e)
+        // Graph 클릭
+        private void BtnGraph_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            Graphpage graphpage = new Graphpage();
+            graphpage.Topmost = true;
+            graphpage.ShowDialog();
         }
     }
 

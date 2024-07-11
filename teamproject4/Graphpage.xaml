@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:teamproject4"
         mc:Ignorable="d"
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True" Background="#ffffff">
+        AllowsTransparency="True" Background="#494351">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
                 <icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
             </Button>
 
-            <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 30">
+            <Border Grid.Row="1" Background="#5F7290" CornerRadius="0 50 0 30">
                 <DockPanel>
                     <!-- Menu Logo -->
                     <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
@@ -45,22 +45,25 @@
                     <TextBlock Text="분리수거 관리 프로그램" Foreground="White" FontSize="16" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10" />
 
-                    <TextBlock Text="Iot2조" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
+                    <TextBlock Text="Iot2조" Foreground="white" FontSize="14" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
 
                     <!-- Button StackPanel for LOGIN and LOGOUT -->
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                        <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="White" FontSize="10"  Margin="0 0 10 0"
-                                   MouseLeftButtonUp="TxtLogin_MouseLeftButtonUp"  Cursor="Hand"/>
+                        <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="Silver" FontSize="10"  Margin="0 0 10 0" />
                         <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
                                     IsHitTestVisible="False"/>
-                        <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="Silver" FontSize="10"/>
+                        <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="White" FontSize="10" 
+                                    Cursor="Hand"  MouseLeftButtonUp="TxtLogout_MouseLeftButtonUp"/>
                     </StackPanel>
+
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                        <TextBlock x:Name="TxtOn" Text="ON" Foreground="Silver" FontSize="10"  Margin="0 0 10 0" />
+                        <TextBlock x:Name="TxtOn" Text="ON" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                    Cursor="Hand"  MouseLeftButtonUp="TxtOn_MouseLeftButtonUp"/>
                         <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
                                     IsHitTestVisible="False"/>
-                        <TextBlock x:Name="TxtOff" Text="OFF" Foreground="Silver" FontSize="10"/>
+                        <TextBlock x:Name="TxtOff" Text="OFF" Foreground="White" FontSize="10" 
+                                    Cursor="Hand"  MouseLeftButtonUp="TxtOff_MouseLeftButtonUp"/>
                     </StackPanel>
 
                     <!-- Menu Separator -->
@@ -75,14 +78,14 @@
                             </StackPanel>
                         </Button>
 
-                        <Button x:Name="BtnGraph" Style="{StaticResource menuButton}" Click="BtnGraph_Click" >
+                        <Button x:Name="BtnGraph" Style="{StaticResource menuButton}" Click="BtnGraph_Click" Background="#D0E1E9">
                             <StackPanel Orientation="Horizontal">
                                 <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}" Foreground="White"/>
                                 <TextBlock Text="Graph" Foreground="White"/>
                             </StackPanel>
                         </Button>
 
-                        <Button x:Name="BtnManagement" Style="{StaticResource menuButton}">
+                        <Button x:Name="BtnManagement" Style="{StaticResource menuButton}" Click="BtnManagement_Click">
                             <StackPanel Orientation="Horizontal">
                                 <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}" />
                                 <TextBlock Text="Management" />
@@ -100,7 +103,7 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="1" Content="그래프 페이지" FontSize="15" Foreground="Coral" />
+            <Label Grid.Column="1" Content="그래프 페이지" FontSize="15" Foreground="White" />
             <lvc:PieChart Series="{Binding Series}" Grid.Row="1" Margin="71,44,101,-576"/>
 
             <!-- Top Buttons -->
