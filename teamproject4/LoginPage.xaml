@@ -8,12 +8,8 @@
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:iconPcks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d"
-    Title= "Smart-Recylcling-Factory" Height="600" Width="500" FontFamily="NanumGothic">
-    <!--mah:MetroWindow.IconTemplate>
-        <DataTemplate>
-            <iconPcks:PackIconMaterial Kind="ClockDigital" VerticalAlignment="Center"/>
-        </DataTemplate>
-    </mah:MetroWindow.IconTemplate-->
+    Title= "Smart-Recylcling-Factory" Height="600" Width="500" FontFamily="NanumGothic" WindowStartupLocation="CenterScreen">
+
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
             <Button Command="{Binding SomeCommand}" ToolTip="time">
@@ -51,10 +47,9 @@
         </Grid.RowDefinitions>
 
         <!-- Body-->
-        <Grid Grid.Row="1" Background="DarkGray" Grid.ColumnSpan="2" Margin="0,0,0,350" Grid.RowSpan="2" >
-            <!--<Image Source="recycling.jpg" Height="200" Width="500" />-->
+        <Grid Grid.Row="1" Background=" #CAC6BD" Grid.ColumnSpan="2" Margin="0,0,0,350" Grid.RowSpan="2" >
         </Grid>
-        <Grid Grid.Row="2" Background="DarkGray" Grid.ColumnSpan="2"/>
+        <Grid Grid.Row="2" Background=" #CAC6BD" Grid.ColumnSpan="2"/>
 
 
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
