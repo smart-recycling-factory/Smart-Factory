@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smart_LoginPage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,9 +57,9 @@ namespace teamproject4
         // Login 클릭
         private void TxtLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            membership Membership = new membership();
-            Membership.Topmost = true;
-            Membership.ShowDialog();
+            LoginPage loginPage = new LoginPage();
+            loginPage.Topmost = true;
+            loginPage.ShowDialog();
         }
 
         // 프로그램 종료버튼
