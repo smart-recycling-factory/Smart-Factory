@@ -31,5 +31,17 @@ namespace teamproject4
                 this.DragMove();
             }
         }
+
+        // 취소 버튼 클릭
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        // 저장 버튼 클릭
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

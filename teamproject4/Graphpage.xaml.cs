@@ -27,7 +27,7 @@ namespace teamproject4
         private void LoadChartData()
         {
             var results = new List<Employees.result>();
-
+            
             // 데이터베이스 연결 및 데이터 읽기
             using (SqlConnection connection = new SqlConnection(Common.CONNSTRING))
             {
@@ -114,36 +114,6 @@ namespace teamproject4
             };
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var mainwindow = new MainWindow();
-            mainwindow.Owner = this;
-            mainwindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            mainwindow.ShowDialog();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            var Firstpage = new firstpage();
-            Firstpage.Owner = this;
-            Firstpage.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            Firstpage.ShowDialog();
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult mbresult = MessageBox.Show("종료 창", "종료하시겠습니까?", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (MessageBoxResult.Yes == mbresult)
-            {
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
-            }
-        }
-
-        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) { }
-        private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e) { }
-        private void TextBlock_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e) { }
-        private void TextBlock_MouseLeftButtonUp_3(object sender, MouseButtonEventArgs e) { }
-
         public ObservableCollection<ISeries> Series { get; set; }
         public Axis[] XAxes { get; set; }
         public Axis[] YAxes { get; set; }
@@ -152,6 +122,55 @@ namespace teamproject4
         private void Pixelchart_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        // Logout 클릭
+        private void TxtLogout_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var res = MessageBox.Show("로그아웃 하시겠습니까?", "로그아웃창", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.Yes)
+            {
+                this.Hide();
+                firstpage Firstpage = new firstpage();
+                Firstpage.ShowDialog();
+            }
+        }
+
+        // On 클릭
+        private void TxtOn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        // Off 클릭
+        private void TxtOff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        // Graph 버튼 클릭
+        private void BtnGraph_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Graphpage graphpage = new Graphpage();
+            graphpage.Topmost = true;
+            graphpage.ShowDialog();
+        }
+
+        // Management 버튼 클릭
+        private void BtnManagement_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Topmost = true;
+            mainwindow.ShowDialog();
+        }
+
+        // 프로그램 종료버튼
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            var res = MessageBox.Show("종료하시겠습니까?", "종료창", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.Yes) Environment.Exit(0);
         }
     }
 }
