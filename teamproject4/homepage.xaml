@@ -46,8 +46,7 @@
 
                     <!-- Button StackPanel for LOGIN and LOGOUT -->
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                        <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="Silver" FontSize="10"  Margin="0 0 10 0"
-                                    Cursor="Hand"/>
+                        <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="Silver" FontSize="10"  Margin="0 0 10 0" />
                         <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
                                     IsHitTestVisible="False"/>
                         <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="White" FontSize="10" 
@@ -75,7 +74,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button x:Name="BtnGraph" Style="{StaticResource menuButton}" Click="BtnGraph_Click">
+                        <Button x:Name="BtnGraph" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
                                 <TextBlock Text="Graph" />

@@ -50,19 +50,17 @@
 
                     <!-- Button StackPanel for LOGIN and LOGOUT -->
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                        <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="Silver" FontSize="10"  Margin="0 0 10 0" />
+                        <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                   MouseLeftButtonUp="TxtLogin_MouseLeftButtonUp"  Cursor="Hand"/>
                         <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
                                     IsHitTestVisible="False"/>
-                        <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="White" FontSize="10" 
-                                    Cursor="Hand"  MouseLeftButtonUp="TxtLogout_MouseLeftButtonUp"/>
+                        <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="Silver" FontSize="10"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                        <TextBlock x:Name="TxtOn" Text="ON" Foreground="White" FontSize="10"  Margin="0 0 10 0"
-                                    Cursor="Hand"  MouseLeftButtonUp="TxtOn_MouseLeftButtonUp"/>
+                        <TextBlock x:Name="TxtOn" Text="ON" Foreground="Silver" FontSize="10"  Margin="0 0 10 0" />
                         <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
                                     IsHitTestVisible="False"/>
-                        <TextBlock x:Name="TxtOff" Text="OFF" Foreground="White" FontSize="10" 
-                                    Cursor="Hand"  MouseLeftButtonUp="TxtOff_MouseLeftButtonUp"/>
+                        <TextBlock x:Name="TxtOff" Text="OFF" Foreground="Silver" FontSize="10"/>
                     </StackPanel>
 
                     <!-- Menu Separator -->
@@ -70,7 +68,7 @@
 
                     <!-- Menu Buttons -->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="BtnHome" Style="{StaticResource menuButton}">
+                        <Button x:Name="BtnHome" Style="{StaticResource menuButton}" Click="BtnHome_Click">
                             <StackPanel Orientation="Horizontal">
                                 <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuBottomIcon}"/>
                                 <TextBlock Text="Home" />
@@ -84,7 +82,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button x:Name="BtnManagement" Style="{StaticResource menuButton}" Click="BtnManagement_Click">
+                        <Button x:Name="BtnManagement" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}" />
                                 <TextBlock Text="Management" />

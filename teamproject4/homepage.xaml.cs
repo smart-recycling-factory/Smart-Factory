@@ -33,15 +33,6 @@ namespace teamproject4
             homepage.ShowDialog();
         }
 
-        // Graph 버튼 클릭
-        private void BtnGraph_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            Graphpage graphpage = new Graphpage();
-            graphpage.Topmost = true;
-            graphpage.ShowDialog();
-        }
-
         // Management 버튼 클릭
         private void BtnManagement_Click(object sender, RoutedEventArgs e)
         {
