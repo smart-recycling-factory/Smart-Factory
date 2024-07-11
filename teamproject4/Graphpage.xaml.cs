@@ -32,21 +32,18 @@ namespace teamproject4
             ViewModel.get_data_graph();
         }
 
-
-
         private void Pixelchart_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
         }
 
-
         // Home 버튼 클릭
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            firstpage Firstpage = new firstpage();
-            Firstpage.Topmost = true;
-            Firstpage.ShowDialog();
+            homepage homepage = new homepage();
+            homepage.Topmost = true;
+            homepage.ShowDialog();
         }
 
         // Graph 버튼 클릭
@@ -58,6 +55,14 @@ namespace teamproject4
             graphpage.ShowDialog();
         }
 
+        // Management 클릭
+        private void BtnManagement_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.Topmost = true;
+            mainwindow.ShowDialog();
+        }
 
         // 프로그램 종료버튼
         private void BtnExit_Click(object sender, RoutedEventArgs e)
@@ -66,12 +71,28 @@ namespace teamproject4
             if (res == MessageBoxResult.Yes) Environment.Exit(0);
         }
 
-        // 로그인 버튼
-        private void TxtLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        // Logout 클릭
+        private void TxtLogout_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            membership Membership = new membership();
-            Membership.Topmost = true;
-            Membership.ShowDialog();
+            var res = MessageBox.Show("로그아웃 하시겠습니까?", "로그아웃창", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.Yes)
+            {
+                this.Hide();
+                firstpage Firstpage = new firstpage();
+                Firstpage.ShowDialog();
+            }
+        }
+
+        // On 클릭
+        private void TxtOn_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        // Off 클릭
+        private void TxtOff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 

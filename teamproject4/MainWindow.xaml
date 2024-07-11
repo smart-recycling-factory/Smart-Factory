@@ -13,7 +13,7 @@
     </Window.Resources>
 
 
-    <Border Background="#eff2f7" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border Background="#494351" CornerRadius="30" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -32,7 +32,7 @@
                     <icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
                 </Button>
 
-                <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 30">
+                <Border Grid.Row="1" Background="#5F7290" CornerRadius="0 50 0 30">
                     <DockPanel>
                         <!-- Menu Logo -->
                         <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
@@ -47,7 +47,7 @@
                         <!-- Menu Titles-->
                         <TextBlock Text="분리수거 관리 프로그램" Foreground="White" FontSize="16" FontWeight="SemiBold"
                                    DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
-                        <TextBlock Text="Iot2조" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
+                        <TextBlock Text="Iot2조" Foreground="White" FontSize="14" FontWeight="SemiBold"
                                    DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
 
                         <!-- Button StackPanel for LOGIN and LOGOUT -->
@@ -67,7 +67,7 @@
                                         Cursor="Hand"  MouseLeftButtonUp="TxtOff_MouseLeftButtonUp"/>
                         </StackPanel>
                         <!-- Menu Seprator-->
-                        <Separator Margin="15" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc" />
+                        <Separator Margin="15" DockPanel.Dock="Top" Height="0.8" Background="#D0E1E9" />
 
                         <!-- Menu Buttons -->
                         <StackPanel DockPanel.Dock="Top">
@@ -78,14 +78,14 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="BtnGraph" Style="{StaticResource menuButton}">
+                            <Button x:Name="BtnGraph" Style="{StaticResource menuButton}" Click="BtnGraph_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
                                     <TextBlock Text="Graph" />
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="BtnManagement" Style="{StaticResource menuButton}" Click="BtnManagement_Click">
+                            <Button x:Name="BtnManagement" Style="{StaticResource menuButton}" Click="BtnManagement_Click" Background="#D0E1E9">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}" Foreground="White"/>
                                     <TextBlock Text="Management" Foreground="White" />
@@ -108,10 +108,12 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="127*"/>
+                    <RowDefinition Height="226*"/>
                 </Grid.RowDefinitions>
 
                 <!-- Search TextBox -->
-                <Grid Width="300" HorizontalAlignment="Left">
+                <Grid Width="300" HorizontalAlignment="Left" Margin="0,0,0,55" Grid.RowSpan="2">
                     <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
                                Panel.ZIndex="1" Text="Serch here..."
                                Visibility="{Binding ElementName=txtSearch, Converter={StaticResource BoolToVis}}"/>
@@ -124,19 +126,18 @@
 
                 <!-- Top Buttons -->
 
-                <Button x:Name="BtnExit" Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc"
-                HorizontalAlignment="Right" Click="BtnExit_Click" Grid.Row="0" Grid.Column="2">
+                <Button x:Name="BtnExit" Style="{StaticResource topButton}" Margin="780,14,0,14" Background="#dcdcdc" Click="BtnExit_Click" Grid.Row="0">
                     <icon:PackIconVaadinIcons Kind="Exit"/>
                 </Button>
 
 
 
                 <!-- Page Title -->
-                <TextBlock Text="Members" Grid.Row="1" FontWeight="SemiBold" Margin="0 20 0 0"
-                           HorizontalAlignment="Left" Foreground="#121518"/>
+                <TextBlock Text="Members" Grid.Row="1" FontWeight="SemiBold" Margin="0,20,0,55"
+                           HorizontalAlignment="Left" Foreground="#121518" Grid.RowSpan="2"/>
 
                 <!-- Add Button -->
-                <Button Style="{StaticResource addButton}">
+                <Button Style="{StaticResource addButton}" Margin="0,20,0,55" Grid.RowSpan="2" Grid.Row="1">
                     <StackPanel Orientation="Horizontal">
                         <icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                         <TextBlock Text="Add New Member"/>
@@ -144,10 +145,10 @@
                 </Button>
 
                 <!-- Seprator -->
-                <Separator Height="1" Grid.Row="3" Background="#dae2ea" Margin="0 -1 0 10"/>
+                <Separator Height="1" Grid.Row="2" Background="#dae2ea" Margin="0,54,0,10" Grid.RowSpan="2"/>
 
                 <!-- Tap Buttons -->
-                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,10" Grid.RowSpan="2">
                     <Button Content="Club Staff" Style="{StaticResource tabButton}" BorderBrush="#784ff2"/>
                     <Button Content="Players" Style="{StaticResource tabButton}"/>
                     <Button Content="Archived" Style="{StaticResource tabButton}"/>
@@ -158,11 +159,11 @@
                            Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
 
-                <TextBlock Text="Filter by" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"
-                           Foreground="#121518" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <TextBlock Text="Filter by" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="564,0,0,0"
+                           Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                 <!-- Filter TextBox -->
-                <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
+                <Grid Width="200" HorizontalAlignment="Left" Grid.Row="4" Margin="630,0,0,37" Grid.RowSpan="2">
                     <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
                                Panel.ZIndex="1" Text="Serch in Membershere..."
                                Visibility="{Binding ElementName=txtFilter, Converter={StaticResource BoolToVis}}"/>
@@ -170,11 +171,11 @@
                     <TextBox x:Name="txtFilter" Style="{StaticResource textboxFilter}"/>
 
                 </Grid>
-                <CheckBox Style="{DynamicResource CheckBoxStyle1}" Grid.Row="6" Content="asdasd"/>
+                <CheckBox Style="{DynamicResource CheckBoxStyle1}" Grid.Row="5" Content="asdasd" Margin="0,37,0,126" Grid.RowSpan="3"/>
                 <!-- Members Datagrid -->
                 <DataGrid x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
-                          RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5">
+                          RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" Margin="0,10,0,0">
                     <DataGrid.Columns>
                         <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                             <DataGridCheckBoxColumn.HeaderTemplate>
@@ -223,8 +224,8 @@
                 </DataGrid>
 
                 <!-- Pagination Section -->
-                <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
-                        CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
+                <Border Grid.Row="6" HorizontalAlignment="Left" BorderBrush="#dee4ec" BorderThickness="1"
+                        CornerRadius="5" Padding="5" Background="White" Margin="525,10,0,10">
                     <StackPanel Orientation="Horizontal">
                         <Button Style="{StaticResource pagingButton}">
                             <icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}" />

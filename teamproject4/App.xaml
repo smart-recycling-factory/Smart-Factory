@@ -31,8 +31,8 @@
         </Style>
 
         <Style x:Key="menuButton"  TargetType="Button">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="#d0c0ff" />
+            <Setter Property="Background" Value="#A1C2D5" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Height" Value="35" />
             <Setter Property="Margin" Value="15 3" />
@@ -49,7 +49,7 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#7b5cd6" />
+                    <Setter Property="Background" Value="#D0E1E9" />
                     <Setter Property="Foreground" Value="#ffffff" />
                 </Trigger>
             </Style.Triggers>
@@ -119,7 +119,7 @@
         </Style>
 
         <Style x:Key="addButton"  TargetType="Button">
-            <Setter Property="Background" Value="#6741d9" />
+            <Setter Property="Background" Value="#D0E1E9" />
             <Setter Property="Foreground" Value="#ffffff" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Width" Value="150" />
@@ -239,9 +239,9 @@
             <Setter Property="Height" Value="12" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-        
+
         <!-- #region DataGrid Style -->
-        
+
         <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -412,7 +412,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
+
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#623ed0" />
@@ -433,10 +433,10 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
-        
+
         <!-- #endregion-->
-        
-        
+
+
         <!-- #region CheckBOx Style -->
         <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070"/>
@@ -508,7 +508,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <!-- #endregion -->
 
 
