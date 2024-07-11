@@ -103,11 +103,8 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Column="1" Content="그래프 페이지" FontSize="15" Foreground="Coral" />
+            <lvc:PieChart Series="{Binding Series}" Grid.Row="1" Margin="71,44,101,-576"/>
 
-            
-            <lvc:CartesianChart Name="Pixelchart" Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" Sections="{Binding Sections}" Grid.Row="1" MouseDown="Pixelchart_MouseDown"  TooltipPosition="Hidden" EasingFunction="{x:Null}" ZoomMode="X"
-                                    Grid.Column="1"/>
-            
             <!-- Top Buttons -->
             <Button x:Name="BtnExit" Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc"
             HorizontalAlignment="Right" Click="BtnExit_Click" Grid.Row="0" Grid.Column="2">
