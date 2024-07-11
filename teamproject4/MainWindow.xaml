@@ -71,7 +71,7 @@
 
                         <!-- Menu Buttons -->
                         <StackPanel DockPanel.Dock="Top">
-                            <Button x:Name="BtnHome" Style="{StaticResource menuButton}">
+                            <Button x:Name="BtnHome" Style="{StaticResource menuButton}" Click="BtnHome_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuBottomIcon}"/>
                                     <TextBlock Text="Home" />

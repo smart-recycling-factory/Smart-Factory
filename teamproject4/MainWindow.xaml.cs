@@ -50,7 +50,7 @@ namespace teamproject4
 
         }
 
-        /* 활성화 필요없음
+        ///* 활성화 필요없음
         // Home 버튼 클릭
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
@@ -58,7 +58,7 @@ namespace teamproject4
             firstpage Firstpage = new firstpage();
             Firstpage.ShowDialog();
         }
-        */
+      //  */
 
         // Graph 버튼 클릭
         private void BtnGraph_Click(object sender, RoutedEventArgs e)
@@ -138,6 +138,11 @@ namespace teamproject4
 
             //membersDataGrid.ItemSource = members;\
             membersDataGrid.ItemsSource = members;
+        }
+
+        private void BtnHome_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
