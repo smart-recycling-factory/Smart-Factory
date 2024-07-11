@@ -78,7 +78,7 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Name="BtnGraph" Style="{StaticResource menuButton}" Click="BtnGraph_Click" >
+                            <Button x:Name="BtnGraph" Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
                                     <TextBlock Text="Graph" />
