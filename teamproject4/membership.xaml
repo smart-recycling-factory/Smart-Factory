@@ -9,82 +9,87 @@
         mc:Ignorable="d"
          Height="650" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CornerRadius="20" />
+    </WindowChrome.WindowChrome>
+    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="20" Background="White" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Gray" />
+        </Border.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
         
-        <!-- Left Section -->
-        <Border Background="#ffd500" Padding="30" CornerRadius="25 0 0 25">
-            <StackPanel VerticalAlignment="Center">
-                <Image Source="/image/LoginPage.png" Width="160" Height="160" Margin="0 0 0 40"/>
+            <!-- Left Section -->
+            <Border Background="#ffd500" Padding="30" CornerRadius="20 0 0 20">
+                <StackPanel VerticalAlignment="Center">
+                    <Image Source="/image/LoginPage.png" Width="160" Height="160" Margin="0 0 0 40"/>
 
-                <TextBlock Text="Let's get you say up" TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Foreground="#363636"/>
-                <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Foreground="#363636" Margin="0 20 0 20" Text="it should only take a couple of minutes to pair with yout watch"/>
+                    <TextBlock Text="Let's get you say up" TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Foreground="#363636"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Foreground="#363636" Margin="0 20 0 20" Text="it should only take a couple of minutes to pair with yout watch"/>
 
-                <Button Style="{StaticResource buttonBlack}">
-                    <icon:PackIconVaadinIcons Kind="ChevronCircleRight" Width="25" Height="25" Foreground="#ffd500" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Button>
-            </StackPanel>
-        </Border>
-        <!-- Input Section -->
-        <Border Grid.Column="1" Padding="20" Background="#ffffff" CornerRadius="0 25 25 0" MouseDown="Border_MouseDown">
-            <Grid>
-                <Image Source="/Image/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource IconApp}"  />
-                <Image Source="/Image/minus.png" Width="20" Margin="0 7 40 0" Style="{StaticResource IconApp}"/>
+                    <Button Style="{StaticResource buttonBlack}">
+                        <icon:PackIconVaadinIcons Kind="ChevronCircleRight" Width="25" Height="25" Foreground="#ffd500" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <!-- Input Section -->
+            <Border Grid.Column="1" Padding="20" Background="#ffffff" CornerRadius="0 25 25 0" MouseDown="Border_MouseDown">
+                <Grid>
+                    <Image Source="/Image/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource IconApp}"  />
+                    <Image Source="/Image/minus.png" Width="20" Margin="0 7 40 0" Style="{StaticResource IconApp}"/>
 
-                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Grid.Row="0" Text="Name" Style="{StaticResource text}"/>
-                    <TextBlock Grid.Row="1" Text="Gender" Style="{StaticResource text}"/>
-                    <TextBlock Grid.Row="2" Text="Email" Style="{StaticResource text}"/>
-                    <TextBlock Grid.Row="3" Text="Phone" Style="{StaticResource text}"/>
-                    <TextBlock Grid.Row="4" Text="address" Style="{StaticResource text}"/>
-                    <TextBlock Grid.Row="5" Text="position" Style="{StaticResource text}"/>
-                    <TextBlock Grid.Row="6" Text="LoginId" Style="{StaticResource text}"/>
-
-                    <uc:My_TextBox Grid.Column="1" Grid.Row="0" Hint="Karim" Foreground="#ffffff"/>
-                    <uc:My_TextBox Grid.Column="1" Grid.Row="1" Hint="man"/>
-                    <uc:My_TextBox Grid.Column="1" Grid.Row="2" Hint="karim@gmail.com"/>
-                    <uc:My_TextBox Grid.Column="1" Grid.Row="3" Hint="010-0000-0000"/>
-                    <uc:My_TextBox Grid.Column="1" Grid.Row="4" Hint="None"/>
-                    <uc:My_TextBox Grid.Column="1" Grid.Row="5" Hint="Karim"/>
-
-                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Margin="0 10">
-                        
-                    </StackPanel>
-
-                    <Grid Grid.Column="1" Grid.Row="7" Margin="0 40 0 0">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button x:Name="BtnCancel" Content="Cancel" Margin="0 0 10 0" Style="{StaticResource buttonmain}" Click="BtnCancel_Click"/>
-                        <Button x:Name="BtnSave" Content="Save" Margin="10 0 0 0" Grid.Column="1" Style="{StaticResource buttonMainGreen}" Click="BtnSave_Click" />
-                    </Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
+                        <TextBlock Grid.Row="0" Text="Name" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="1" Text="Gender" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="2" Text="Email" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="3" Text="Phone" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="4" Text="address" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="5" Text="position" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="6" Text="LoginId" Style="{StaticResource text}"/>
+
+                        <uc:My_TextBox Grid.Column="1" Grid.Row="0" Hint="Karim" Foreground="#ffffff"/>
+                        <uc:My_TextBox Grid.Column="1" Grid.Row="1" Hint="man"/>
+                        <uc:My_TextBox Grid.Column="1" Grid.Row="2" Hint="karim@gmail.com"/>
+                        <uc:My_TextBox Grid.Column="1" Grid.Row="3" Hint="010-0000-0000"/>
+                        <uc:My_TextBox Grid.Column="1" Grid.Row="4" Hint="None"/>
+                        <uc:My_TextBox Grid.Column="1" Grid.Row="5" Hint="Karim"/>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Margin="0 10">
+
+                        </StackPanel>
+
+                        <Grid Grid.Column="1" Grid.Row="7" Margin="0 40 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="BtnCancel" Content="Cancel" Margin="0 0 10 0" Style="{StaticResource buttonmain}" Click="BtnCancel_Click"/>
+                            <Button x:Name="BtnSave" Content="Save" Margin="10 0 0 0" Grid.Column="1" Style="{StaticResource buttonMainGreen}" Click="BtnSave_Click" />
+                        </Grid>
+
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Border>
-    
-    
-    
-    </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

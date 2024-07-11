@@ -131,8 +131,8 @@ namespace teamproject4
             if (res == MessageBoxResult.Yes)
             {
                 this.Hide();
-                firstpage Firstpage = new firstpage();
-                Firstpage.ShowDialog();
+                homepage Homepage = new homepage();
+                Homepage.ShowDialog();
             }
         }
 

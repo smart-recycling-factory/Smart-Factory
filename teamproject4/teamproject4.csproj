@@ -30,4 +30,16 @@
     <Resource Include="바탕이미지.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="homepage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="homepage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
