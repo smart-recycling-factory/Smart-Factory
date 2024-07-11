@@ -50,23 +50,12 @@ namespace teamproject4
 
         }
 
-        ///* 활성화 필요없음
         // Home 버튼 클릭
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
             homepage Homepage = new homepage();
             Homepage.ShowDialog();
-        }
-      //  */
-
-        // Graph 버튼 클릭
-        private void BtnGraph_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            Graphpage graphpage = new Graphpage();
-            graphpage.Topmost = true;
-            graphpage.ShowDialog();
         }
 
         // Management 버튼 클릭
