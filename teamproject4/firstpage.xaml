@@ -7,105 +7,105 @@
         xmlns:local="clr-namespace:teamproject4"
         mc:Ignorable="d"
         Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        AllowsTransparency="True" Background="#ffffff">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        AllowsTransparency="True" Background="Transparent">
 
-        <!-- Left Menu -->
+    <Border Background="White" CornerRadius="20"  BorderBrush="Gray" BorderThickness="1">
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <!-- Menu icon-->
-            <Button Margin=" 20 28 0 35" Style="{StaticResource topButton}">
-                <icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
-            </Button>
+            <!-- Left Menu -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 30">
-                <DockPanel>
-                    <!-- Menu Logo -->
-                    <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
-                                DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
-                        <Ellipse>
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="/FontAwesome-UserCircleRegular.png" />
-                            </Ellipse.Fill>
-                        </Ellipse>
-                    </Border>
+                <!-- Menu icon-->
+                <Button Margin=" 20 28 0 35" Style="{StaticResource topButton}">
+                    <icon:PackIconMaterial Kind="Menu" Width="15" Height="15"/>
+                </Button>
 
-                    <!-- Menu Titles-->
-                    <TextBlock Text="분리수거 관리 프로그램" Foreground="White" FontSize="16" FontWeight="SemiBold"
-                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10" />
-                    <TextBlock Text="Iot2조" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
-                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
+                <Border Grid.Row="1" Background="#623ed0" CornerRadius="0 50 0 20">
+                    <DockPanel>
+                        <!-- Menu Logo -->
+                        <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
+                                    DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/FontAwesome-UserCircleRegular.png" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
 
-                    <!-- Button StackPanel for LOGIN and LOGOUT -->
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                        <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="White" FontSize="10"  Margin="0 0 10 0"
-                                    Cursor="Hand"  MouseLeftButtonUp="TxtLogin_MouseLeftButtonUp"/>
-                        <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
-                                    IsHitTestVisible="False"/>
-                        <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="Silver" FontSize="10" />
-                    </StackPanel>
-                    
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
-                        <TextBlock x:Name="TxtOn" Text="ON" Foreground="Silver" FontSize="10"  Margin="0 0 10 0"/>
-                        <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
-                                    IsHitTestVisible="False"/>
-                        <TextBlock x:Name="TxtOff" Text="OFF" Foreground="Silver" FontSize="10" />
-                    </StackPanel>
+                        <!-- Menu Titles-->
+                        <TextBlock Text="분리수거 관리 프로그램" Foreground="White" FontSize="16" FontWeight="SemiBold"
+                                       DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10" />
+                        <TextBlock Text="Iot2조" Foreground="#d0bfff" FontSize="14" FontWeight="SemiBold"
+                                       DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"/>
 
-                    <!-- Menu Seprator-->
-                    <Separator Margin="15" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc" />
+                        <!-- Button StackPanel for LOGIN and LOGOUT -->
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
+                            <TextBlock x:Name="TxtLogin" Text="LOGIN" Foreground="White" FontSize="10"  Margin="0 0 10 0"
+                                        Cursor="Hand"  MouseLeftButtonUp="TxtLogin_MouseLeftButtonUp"/>
+                            <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
+                                        IsHitTestVisible="False"/>
+                            <TextBlock x:Name="TxtLogout" Text="LOGOUT" Foreground="Silver" FontSize="10" />
+                        </StackPanel>
 
-                    <!-- Menu Buttons -->
-                    <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="BtnHome" Style="{StaticResource menuButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuBottomIcon}" Foreground="White"/>
-                                <TextBlock Text="Home" Foreground="White" />
-                            </StackPanel>
-                        </Button>
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="5 10 0 10">
+                            <TextBlock x:Name="TxtOn" Text="ON" Foreground="Silver" FontSize="10"  Margin="0 0 10 0"/>
+                            <TextBlock Text="/" Foreground="White" FontSize="10" FontWeight="Bold" Margin="0 0 10 0"
+                                        IsHitTestVisible="False"/>
+                            <TextBlock x:Name="TxtOff" Text="OFF" Foreground="Silver" FontSize="10" />
+                        </StackPanel>
 
-                        <Button x:Name="BtnGraph" Style="{StaticResource menuButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
-                                <TextBlock Text="Graph" />
-                            </StackPanel>
-                        </Button>
+                        <!-- Menu Seprator-->
+                        <Separator Margin="15" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc" />
 
-                        <Button x:Name="BtnManagement" Style="{StaticResource menuButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}"/>
-                                <TextBlock Text="Management" />
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </DockPanel>
-            </Border>
+                        <!-- Menu Buttons -->
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button x:Name="BtnHome" Style="{StaticResource menuButton}" Click="BtnHome_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuBottomIcon}" Foreground="White"/>
+                                    <TextBlock Text="Home" Foreground="White" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="BtnGraph" Style="{StaticResource menuButton}" Click="BtnGraph_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="ChartAreaspline" Style="{StaticResource menuBottomIcon}"/>
+                                    <TextBlock Text="Graph" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="BtnManagement" Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuBottomIcon}"/>
+                                    <TextBlock Text="Management" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+            </Grid>
+
+            <!-- Main Section-->
+            <Grid Grid.Column="1" Margin="28,20,22,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Top Buttons -->
+                <Button x:Name="BtnExit" Style="{StaticResource topButton}" Margin="790,10,0,10" Background="#dcdcdc" Click="BtnExit_Click" Grid.Row="0">
+                    <icon:PackIconVaadinIcons Kind="Exit"/>
+                </Button>
+                <Label Grid.Row="0" Content="환영합니다" Foreground="Coral" FontSize="20"  Width="400" HorizontalAlignment="Left"/>
+                <Image Grid.Row="1" Source="/바탕이미지.png" Height="600" Margin="0,16,0,-16"/>
+            </Grid>
         </Grid>
-
-        <!-- Main Section-->
-        <Grid Grid.Column="1" Margin="28,20,22,10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-
-
-            <!-- Top Buttons -->
-            <Button x:Name="BtnExit" Style="{StaticResource topButton}" Margin="790,10,0,10" Background="#dcdcdc" Click="BtnExit_Click" Grid.Row="0">
-                <icon:PackIconVaadinIcons Kind="Exit"/>
-            </Button>
-            <Label Grid.Row="0" Content="환영합니다" Foreground="Coral" FontSize="20"  Width="400" HorizontalAlignment="Left"/>
-            <Image Grid.Row="1" Source="/바탕이미지.png" Height="600" Margin="0,16,0,-16"/>
-
-
-        </Grid>
-    </Grid>
+    </Border>
 </Window>
