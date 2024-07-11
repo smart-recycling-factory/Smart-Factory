@@ -17,16 +17,11 @@ int second_ir_val;
 int speed_val = 70;  
 int light_val;
 bool is_plastic = false;
-
-int pst_count = 0;
-int box_count = 0;
-int can_count = 0;
-
 String str;     // 시리얼 통신 입력값을 전역변수로 선언!
 
 void setup() {
     Serial.begin(9600);
-    Serial.println("Arduino starts!");
+    // Serial.println("Arduino starts!");
     pinMode(MOTER_DIRECTION, OUTPUT);       // dc모터의 방향을 제어하는 핀을 output으로 설정
     pinMode(LASER_PIN, OUTPUT);             // 레이저핀을 pinmode_OUTPUT으로 지정
     pinMode(LIGHT_SENSOR, INPUT);           // 조도 센서 핀을 INPUT으로 지정
@@ -48,24 +43,29 @@ void loop() {
     digitalWrite(LASER_PIN, HIGH);                // 레이저 센서 켜기
     first_ir_val = digitalRead(IR_SENSOR_FST);    // 적외선 센서
     second_ir_val = digitalRead(IR_SENSOR_SEC);   // 적외선 센서
+
+    // DB에 맞추기 위해 매번 초기화 해주는 걸로 바꾸기
+    int pst_count = 0;
+    int box_count = 0;
+    int can_count = 0;
     
     // 첫 번째 검사대에서 조도센서로 플라스틱과 종이/캔 분류
     if (first_ir_val == LOW) {
       is_plastic = false;
-      Serial.println("detected 1");
+      // Serial.println("detected 1");
       dcStop();
       // 조도 센서
       light_val = analogRead(LIGHT_SENSOR);  
 
       // 플라스틱이면
       if (light_val > 900) {
-        Serial.println("plastic");
+        // Serial.println("plastic");
         delay(1000);
         is_plastic = true;
       }
       // 종이/캔이면
       else {
-        Serial.println("Not plastic!");
+        // Serial.println("Not plastic!");
         delay(1000);
       }
       dcWork();
@@ -73,46 +73,42 @@ void loop() {
 
     // 두 번째 검사대에서 조도센서로 종이/캔 분류 및 물체별 서보모터 동작
     if (second_ir_val == LOW) {
-      Serial.println("detected 2");
+      // Serial.println("detected 2");
       dcStop();
       // 금속 감지 센서
       float metal = analogRead(METAL_SENSOR);
 
       // 캔인 경우
       if (metal < 500) {
-        Serial.println("can");
+        // Serial.println("can");
         delay(1000);
         servoWork(POS_CAN);
         can_count += 1;
+        Serial.print("can-");
+        Serial.println(can_count);
       }
       // 플라스틱인 경우
       else if(is_plastic) {
-          Serial.println("plastic");
+          // Serial.println("plastic");
           // Serial.println(is_plastic);
           delay(1000);
           servoWork(POS_PST);
           pst_count += 1;
+          Serial.print("pst-");
+          Serial.println(pst_count);
       }
       // 종이인 경우
       else {
-        Serial.println("box");
+        // Serial.println("box");
         // Serial.println(is_plastic);
         delay(1000);
         servoWork(POS_BOX);
         box_count += 1;
+        Serial.print("box-");
+        Serial.println(box_count);
       }
       dcWork();
       delay(2000);    // 서보모터 초기화까지의 시간을 벌기 위함
-      // DB 저장 미리 확인
-      Serial.print("pst - ");
-      Serial.println(pst_count);
-      // delay(1000);
-      Serial.print("box - ");
-      Serial.println(box_count);
-      // delay(1000);
-      Serial.print("can - ");
-      Serial.println(can_count);
-      // delay(1000);
     }
   } 
 
