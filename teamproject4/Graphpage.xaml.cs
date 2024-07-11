@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel; // 추가된 네임스페이스
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
@@ -11,19 +12,27 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.SkiaSharpView.WPF;
 using SkiaSharp;
 using teamproject4.Models;
-using teamproject4.Helpers; // Ensure to add this using statement
+using teamproject4.Helpers;
+using Newtonsoft.Json;
+using System.Data;
+using System.Diagnostics;
 
 namespace teamproject4
 {
     public partial class Graphpage : Window
     {
+        public ViewModel ViewModel { get; private set; }
+
         public Graphpage()
         {
             InitializeComponent();
-            DataContext = new ViewModel();
+            ViewModel = new ViewModel();
+            DataContext = ViewModel;
+
+            ViewModel.get_data_graph();
         }
 
-        
+
 
         private void Pixelchart_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -82,14 +91,75 @@ namespace teamproject4
 
     public class ViewModel
     {
-        public ISeries[] Series { get; set; }
-            = new ISeries[]
+        public int red { get; private set; }
+        public int green { get; private set; }
+        public int blue { get; private set; }
+
+        public ISeries[] Series { get; private set; }
+
+
+        public ViewModel()
+        {
+            Series = new ISeries[]
             {
-                new PieSeries<double> { Values = new double[] { 2 } },
-                new PieSeries<double> { Values = new double[] { 4 } },
-                new PieSeries<double> { Values = new double[] { 1 } },
-                new PieSeries<double> { Values = new double[] { 4 } },
-                new PieSeries<double> { Values = new double[] { 3 } }
+                new PieSeries<double> { Values = new double[] { 0 } },
+                new PieSeries<double> { Values = new double[] { 0 } },
+                new PieSeries<double> { Values = new double[] { 0 } }
             };
+        }
+
+        public void get_data_graph()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Helpers.Common.CONNSTRING))
+                {
+                    conn.Open();
+
+                    using (var Pcount = new SqlCommand(Result.RESULT_SELECT_PLASTIC, conn))
+                    {
+                        var P_result = Pcount.ExecuteScalar();
+                        red = P_result != null ? Convert.ToInt32(P_result) : 0;
+                    }
+
+                    using (var Rcount = new SqlCommand(Result.RESULT_SELECT_PAPER, conn))
+                    {
+                        var R_result = Rcount.ExecuteScalar();
+                        green = R_result != null ? Convert.ToInt32(R_result) : 0;
+                    }
+
+                    using (var Ccount = new SqlCommand(Result.RESULT_SELECT_CAN, conn))
+                    {
+                        var C_result = Ccount.ExecuteScalar();
+                        blue = C_result != null ? Convert.ToInt32(C_result) : 0;
+                    }
+
+                    // Series 속성 업데이트 및 색상 설정
+                    Series = new ISeries[]
+                    {
+                        new PieSeries<double>
+                        {
+                            Values = new double[] { red },
+                            Fill = new SolidColorPaint(SKColors.Red) // 빨간색
+                        },
+                        new PieSeries<double>
+                        {
+                            Values = new double[] { green },
+                            Fill = new SolidColorPaint(SKColors.Green) // 초록색
+                        },
+                        new PieSeries<double>
+                        {
+                            Values = new double[] { blue },
+                            Fill = new SolidColorPaint(SKColors.Blue) // 파란색
+                        }
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("데이터 조회 중 오류가 발생했습니다: " + ex.Message);
+            }
+
+        }
     }
 }
