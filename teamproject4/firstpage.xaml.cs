@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smart_LoginPage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,7 @@ namespace teamproject4
             Firstpage.ShowDialog();
         }
 
+        /* 활성화 필요없음
         // Graph 버튼 클릭
         private void BtnGraph_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +44,6 @@ namespace teamproject4
             graphpage.ShowDialog();
         }
 
-        /* 활성화 필요없음
         // Management 버튼 클릭
         private void BtnManagement_Click(object sender, RoutedEventArgs e)
         {   
@@ -56,9 +57,9 @@ namespace teamproject4
         // Login 클릭
         private void TxtLogin_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            membership Membership = new membership();
-            Membership.Topmost = true;
-            Membership.ShowDialog();
+            LoginPage loginPage = new LoginPage();
+            loginPage.Topmost = true;
+            loginPage.ShowDialog();
         }
 
         // 프로그램 종료버튼
@@ -66,16 +67,6 @@ namespace teamproject4
         {
             var res = MessageBox.Show("종료하시겠습니까?", "종료창", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (res == MessageBoxResult.Yes) Environment.Exit(0);
-        }
-
-        private void BtnHome_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnGraph_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

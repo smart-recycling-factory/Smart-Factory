@@ -21,9 +21,9 @@
                 <ColumnDefinition Width="350"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-        
+
             <!-- Left Section -->
-            <Border Background="#ffd500" Padding="30" CornerRadius="20 0 0 20">
+            <Border Background="#D0E1E9" Padding="30" CornerRadius="20 0 0 20">
                 <StackPanel VerticalAlignment="Center">
                     <Image Source="/image/LoginPage.png" Width="160" Height="160" Margin="0 0 0 40"/>
 
@@ -36,7 +36,7 @@
                 </StackPanel>
             </Border>
             <!-- Input Section -->
-            <Border Grid.Column="1" Padding="20" Background="#ffffff" CornerRadius="0 25 25 0" MouseDown="Border_MouseDown">
+            <Border Grid.Column="1" Padding="20" Background="#CAC6BD" CornerRadius="0 25 25 0" MouseDown="Border_MouseDown">
                 <Grid>
                     <Image Source="/Image/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource IconApp}"  />
                     <Image Source="/Image/minus.png" Width="20" Margin="0 7 40 0" Style="{StaticResource IconApp}"/>

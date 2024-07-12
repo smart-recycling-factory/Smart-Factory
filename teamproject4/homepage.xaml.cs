@@ -33,6 +33,15 @@ namespace teamproject4
             homepage.ShowDialog();
         }
 
+        // Graph 버튼 클릭
+        private void BtnGraph_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Graphpage graphpage = new Graphpage();
+            graphpage.Topmost = true;
+            graphpage.ShowDialog();
+        }
+
         // Management 버튼 클릭
         private void BtnManagement_Click(object sender, RoutedEventArgs e)
         {
@@ -58,6 +67,7 @@ namespace teamproject4
             var res = MessageBox.Show("종료하시겠습니까?", "종료창", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (res == MessageBoxResult.Yes) Environment.Exit(0);
         }
+
         // Logout 클릭
         private void TxtLogout_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -78,21 +88,6 @@ namespace teamproject4
 
         // Off 클릭
         private void TxtOff_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void BtnHome_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnGraph_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnManagement_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
