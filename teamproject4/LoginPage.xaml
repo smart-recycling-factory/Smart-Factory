@@ -12,7 +12,7 @@
 
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
-            <Button Command="{Binding SomeCommand}" ToolTip="time">
+            <Button Command="{Binding SomeCommand}" ToolTip="time"> 
                 <iconPcks:PackIconMaterial Kind="Timetable"/>
             </Button>
         </mah:WindowCommands>
