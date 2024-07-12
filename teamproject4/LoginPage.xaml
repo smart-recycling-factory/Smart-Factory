@@ -8,7 +8,7 @@
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:iconPcks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d"
-    Title= "Smart-Recylcling-Factory" Height="700" Width="400" FontFamily="NanumGothic" WindowStartupLocation="CenterScreen">
+    Title= "Smart-Recylcling-Factory" Height="700" Width="400" FontFamily="NanumGothic" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <!--mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
