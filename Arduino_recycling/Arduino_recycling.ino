@@ -104,11 +104,13 @@ void loop() {
       dcWork();
       delay(2000);    // 서보모터 초기화까지의 시간을 벌기 위함
       Serial.print("pst-");
-        Serial.println(pst_count);
+      Serial.print(pst_count);
+      Serial.print("-");
       Serial.print("can-");
-      Serial.println(can_count);
+      Serial.print(can_count);
+      Serial.print("-");
       Serial.print("box-");
-      Serial.println(box_count);
+      Serial.print(box_count);
     }
   } 
 
