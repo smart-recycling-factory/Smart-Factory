@@ -7,7 +7,7 @@ using teamproject4.Models;
 
 namespace Smart_LoginPage
 {
-    public partial class LoginPage : MetroWindow
+    public partial class LoginPage : Window
     {
         // 데이터베이스 연결 문자열
         string CONN = "Data Source=localhost;Initial Catalog=smart_factory;Persist Security Info=True;User ID=sa;Encrypt=False;Password=mssql_p@ss";
