@@ -10,9 +10,9 @@
          Height="650" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
     <WindowChrome.WindowChrome>
-        <WindowChrome CornerRadius="20" />
+        <WindowChrome CornerRadius="30" />
     </WindowChrome.WindowChrome>
-    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="20" Background="White" Margin="5">
+    <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="30" Background="White" Margin="5">
         <Border.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Gray" />
         </Border.Effect>
@@ -25,20 +25,20 @@
             <!-- Left Section -->
             <Border Background="#D0E1E9" Padding="30" CornerRadius="20 0 0 20">
                 <StackPanel VerticalAlignment="Center">
-                    <Image Source="/image/LoginPage.png" Width="160" Height="160" Margin="0 0 0 40"/>
+                    <Image Source="/image/LoginPage.png" Width="160" Height="160" Margin="0 0 0 40" />
 
-                    <TextBlock Text="Let's get you say up" TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Foreground="#363636"/>
-                    <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Foreground="#363636" Margin="0 20 0 20" Text="it should only take a couple of minutes to pair with yout watch"/>
+                    <TextBlock Text="WELCOME" TextAlignment="Center" FontWeight="SemiBold" FontSize="28" Foreground="#5F7290"/>
+                    <TextBlock TextWrapping="Wrap" FontSize="16" TextAlignment="Center" Foreground="#363636" Margin="0 20 0 20" Text="Please enter your personal information. It'll only take a few minutes."/>
 
                     <Button Style="{StaticResource buttonBlack}">
-                        <icon:PackIconVaadinIcons Kind="ChevronCircleRight" Width="25" Height="25" Foreground="#ffd500" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <icon:PackIconVaadinIcons Kind="ChevronCircleRight" Width="25" Height="25" Foreground="#CAC6BD" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Button>
                 </StackPanel>
             </Border>
             <!-- Input Section -->
-            <Border Grid.Column="1" Padding="20" Background="#CAC6BD" CornerRadius="0 25 25 0" MouseDown="Border_MouseDown">
+            <Border Grid.Column="1" Padding="20" Background="#CAC6BD" CornerRadius="0 10 10 0" MouseDown="Border_MouseDown">
                 <Grid>
-                    <Image Source="/Image/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource IconApp}"  />
+                    <Image Source="/Image/close.png" Width="25" Margin="0 4 5 0" Style="{StaticResource IconApp}" />
                     <Image Source="/Image/minus.png" Width="20" Margin="0 7 40 0" Style="{StaticResource IconApp}"/>
 
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0">
@@ -59,7 +59,7 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Text="Name" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="0" Text="Name" Style="{StaticResource text}" />
                         <TextBlock Grid.Row="1" Text="Gender" Style="{StaticResource text}"/>
                         <TextBlock Grid.Row="2" Text="Email" Style="{StaticResource text}"/>
                         <TextBlock Grid.Row="3" Text="Phone" Style="{StaticResource text}"/>
@@ -68,14 +68,14 @@
                         <TextBlock Grid.Row="6" Text="LoginId" Style="{StaticResource text}"/>
                         <TextBlock Grid.Row="7" Text="PassWord" Style="{StaticResource text}"/>
 
-                        <TextBox Grid.Column="1" Grid.Row="0" Foreground="#ffffff"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" />
-                        <TextBox Grid.Column="1" Grid.Row="2" />
-                        <TextBox Grid.Column="1" Grid.Row="3" />
-                        <TextBox Grid.Column="1" Grid.Row="4" />
-                        <TextBox Grid.Column="1" Grid.Row="5" />
-                        <TextBox Grid.Column="1" Grid.Row="6" />
-                        <TextBox Grid.Column="1" Grid.Row="7" />
+                        <TextBox Grid.Column="1" Grid.Row="0" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,50,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2" />
+                        <TextBox Grid.Column="1" Grid.Row="1" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,80,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox Grid.Column="1" Grid.Row="2" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-105,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox Grid.Column="1" Grid.Row="3" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-75,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox Grid.Column="1" Grid.Row="4" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-140,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox Grid.Column="1" Grid.Row="5" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,80,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox Grid.Column="1" Grid.Row="6" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,20,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox Grid.Column="1" Grid.Row="7" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-20,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
 
                         <Grid Grid.Column="1" Grid.Row="8" Margin="0 40 0 0">
                             <Grid.ColumnDefinitions>
@@ -83,8 +83,10 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button x:Name="BtnCancel" Content="Cancel" Margin="0 0 10 0" Style="{StaticResource buttonmain}" Click="BtnCancel_Click"/>
-                            <Button x:Name="BtnSave" Content="Save" Margin="10 0 0 0" Grid.Column="1" Style="{StaticResource buttonMainGreen}" Click="BtnSave_Click" />
+                            <!--<Button x:Name="BtnCancel" Content="Cancel" Margin="0 0 10 0" Style="{StaticResource buttonBlack }" Click="BtnCancel_Click"/>-->
+                            <Button x:Name="BtnCancel" Content="Cancel" Margin="0,0,10,0" Width="80" Height="40" Background="#5F7290" Click="BtnCancel_Click"/>
+                            <!--<Button x:Name="BtnSave" Content="Save" Margin="10 0 0 0" Grid.Column="1" Style="{StaticResource buttonMainGreen}" Click="BtnSave_Click" />-->
+                            <Button x:Name="BtnSave" Content="Save" Margin="10,0,0,0"  Grid.Column="1" Width="80" Height="40" Background="#5F7290" Click="BtnSave_Click" />
                         </Grid>
 
                     </Grid>
