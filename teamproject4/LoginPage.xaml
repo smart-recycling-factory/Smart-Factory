@@ -1,4 +1,4 @@
-﻿<mah:MetroWindow
+﻿<Window
     x:Class="Smart_LoginPage.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,17 +8,51 @@
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:iconPcks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d"
-    Title= "Smart-Recylcling-Factory" Height="600" Width="500" FontFamily="NanumGothic" WindowStartupLocation="CenterScreen">
+    Title= "Smart-Recylcling-Factory" Height="700" Width="400" FontFamily="NanumGothic" WindowStartupLocation="CenterScreen">
 
-    <mah:MetroWindow.LeftWindowCommands>
+    <!--mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
             <Button Command="{Binding SomeCommand}" ToolTip="time">
                 <iconPcks:PackIconMaterial Kind="Timetable"/>
             </Button>
         </mah:WindowCommands>
-    </mah:MetroWindow.LeftWindowCommands>
+    </mah:MetroWindow.LeftWindowCommands-->
 
-    <!--상단바 아이콘 설정-->
+    <Window.Template>
+        <ControlTemplate TargetType="{x:Type Window}">
+            <Grid>
+                <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <AdornerDecorator>
+                        <ContentPresenter/>
+                    </AdornerDecorator>
+                </Border>
+                <!--Left side icons-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,8,0,0">
+                    <Button Command="{Binding SomeCommand}" ToolTip="Timetable">
+                        <iconPcks:PackIconMaterial Kind="Timetable" />
+                    </Button>
+                </StackPanel>
+
+                <!--Right side icons-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,8,0">
+                    <Button Command="{Binding SomeCommand}" ToolTip="SignalCelluar3">
+                        <iconPcks:PackIconMaterial Kind="SignalCellular3" />
+                    </Button>
+
+                    <Button Command="{Binding SomeCommand}" ToolTip="Wifi" Margin="8,0,0,0">
+                        <iconPcks:PackIconMaterial Kind="Wifi" />
+                    </Button>
+
+                    <Button Command="{Binding SomeCommand}" ToolTip="Battery" Margin="8,0,0,0">
+                        <iconPcks:PackIconMaterial Kind="Battery" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </ControlTemplate>
+    </Window.Template>
+    <!--상단바 아이콘 설정
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
             <Button Command="{Binding SomeCommand}" ToolTip="SignalCellular3">
@@ -33,13 +67,9 @@
                 <iconPcks:PackIconMaterial Kind="Battery"/>
             </Button>
         </mah:WindowCommands>
-    </mah:MetroWindow.RightWindowCommands>
+        </mah:MetroWindow.RightWindowCommands-->
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="437*"/>
-            <ColumnDefinition Width="63*"/>
-        </Grid.ColumnDefinitions>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -47,28 +77,28 @@
         </Grid.RowDefinitions>
 
         <!-- Body-->
-        <Grid Grid.Row="1" Background=" #CAC6BD" Grid.ColumnSpan="2" Margin="0,0,0,350" Grid.RowSpan="2" >
+        <Grid Grid.Row="1" Background="#CAC6BD " >
+            <!--Image Source="recycling.jpg" Height="200" Width="500" /-->
         </Grid>
-        <Grid Grid.Row="2" Background=" #CAC6BD" Grid.ColumnSpan="2"/>
+        <Grid Grid.Row="2" Background="#CAC6BD"/>
 
-
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+ 
+        <Grid Grid.Row="2" Grid.Column="0">
             <StackPanel Grid.Row="2" Margin="0,0,0,0">
-                <Border Width="300" CornerRadius="5" Height="40" Margin="6, 10" Opacity="0.7">
+                <Border Width="300" CornerRadius="5" Height="60" Margin="6, 10" Opacity="0.7">
                     <StackPanel Orientation="Horizontal">
                         <!--icon 추가-->
                         <iconPcks:PackIconMaterial Kind="Account" VerticalAlignment="Stretch" Margin="8" Width="23" Height="30" />
 
-                        <TextBox Width="300" VerticalAlignment="Center" FontSize="18" 
-                                 mah:TextBoxHelper.Watermark="UserID" mah:TextBoxHelper.UseFloatingWatermark="True"
-                                 mah:TextBoxHelper.AutoWatermark="True"
-                                 mah:TextBoxHelper.ClearTextButton="True" BorderBrush="Black" FontWeight="DemiBold"/>
-
+                        <TextBox Width="300" VerticalAlignment="Center" FontSize="18" Height="30"
+                            mah:TextBoxHelper.Watermark="UserID" mah:TextBoxHelper.UseFloatingWatermark="True"
+                            mah:TextBoxHelper.AutoWatermark="True"
+                            mah:TextBoxHelper.ClearTextButton="True" BorderBrush="#494351" FontWeight="DemiBold" Background="#494351"/>
                     </StackPanel>
 
                 </Border>
 
-                <Border Width="300" CornerRadius="5" Height="40" Margin="6, 10" Opacity="0.7">
+                <Border Width="300" CornerRadius="5" Height="50" Margin="6, 10" Opacity="0.7">
                     <StackPanel Orientation="Horizontal">
                         <!--icon 추가-->
                         <iconPcks:PackIconMaterial Kind="Lock" VerticalAlignment="Stretch" Margin="8" Width="23" Height="30" />
@@ -76,19 +106,19 @@
                         <TextBox Width="300" VerticalAlignment="Center" FontSize="18" 
                              mah:TextBoxHelper.Watermark="Password" mah:TextBoxHelper.UseFloatingWatermark="True"
                              mah:TextBoxHelper.AutoWatermark="True"
-                             mah:TextBoxHelper.ClearTextButton="True" BorderBrush="Black" FontWeight="DemiBold"/>
+                             mah:TextBoxHelper.ClearTextButton="True" BorderBrush="#494351" FontWeight="DemiBold" Background="#494351"/>
                     </StackPanel>
 
                 </Border>
 
-                <Button x:Name="BtnLogin" Content="로그인" Margin="150, 30, 150, 30" Height="42"></Button>
+                <Button x:Name="BtnLogin" Content="로그인" Margin="150, 30, 150, 30" Style="{StaticResource MahApps.Styles.Button.Dialogs}" Height="42" Background="#5F7290"></Button>
 
-                <Button Content="비밀번호를 잊으셨나요?" Width="200" Height="30" FontSize="12" HorizontalContentAlignment="Center" Background="DarkGray" />
+                <Button Content="비밀번호를 잊으셨나요?" Width="200" Height="20" FontSize="12" HorizontalContentAlignment="Center" Style="{StaticResource MahApps.Styles.Button.Hamburger}" Background="#5F7290" />
 
-                <Button x:Name="BtnSignup" Content="회원가입" Width="100" Height="30" FontSize="11" Background="DarkGray" Margin="20"  HorizontalContentAlignment="Center" Click="BtnSignup_Click"/>
+                <Button Content="회원가입" Width="100" Height="30" FontSize="11" Background="#5F7290" Style="{StaticResource MahApps.Styles.Button.Dialogs}" Margin="20"/>
 
             </StackPanel>
         </Grid>
 
     </Grid>
-</mah:MetroWindow>
+</Window>
