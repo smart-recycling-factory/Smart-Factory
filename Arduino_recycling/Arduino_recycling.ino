@@ -84,8 +84,6 @@ void loop() {
         delay(1000);
         servoWork(POS_CAN);
         can_count += 1;
-        Serial.print("can-");
-        Serial.println(can_count);
       }
       // 플라스틱인 경우
       else if(is_plastic) {
@@ -94,8 +92,6 @@ void loop() {
           delay(1000);
           servoWork(POS_PST);
           pst_count += 1;
-          Serial.print("pst-");
-          Serial.println(pst_count);
       }
       // 종이인 경우
       else {
@@ -104,11 +100,15 @@ void loop() {
         delay(1000);
         servoWork(POS_BOX);
         box_count += 1;
-        Serial.print("box-");
-        Serial.println(box_count);
       }
       dcWork();
       delay(2000);    // 서보모터 초기화까지의 시간을 벌기 위함
+      Serial.print("pst-");
+        Serial.println(pst_count);
+      Serial.print("can-");
+      Serial.println(can_count);
+      Serial.print("box-");
+      Serial.println(box_count);
     }
   } 
 
