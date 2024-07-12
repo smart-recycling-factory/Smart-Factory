@@ -56,6 +56,7 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Grid.Row="0" Text="Name" Style="{StaticResource text}"/>
@@ -65,19 +66,18 @@
                         <TextBlock Grid.Row="4" Text="address" Style="{StaticResource text}"/>
                         <TextBlock Grid.Row="5" Text="position" Style="{StaticResource text}"/>
                         <TextBlock Grid.Row="6" Text="LoginId" Style="{StaticResource text}"/>
+                        <TextBlock Grid.Row="7" Text="PassWord" Style="{StaticResource text}"/>
 
-                        <uc:My_TextBox Grid.Column="1" Grid.Row="0" Hint="Karim" Foreground="#ffffff"/>
-                        <uc:My_TextBox Grid.Column="1" Grid.Row="1" Hint="man"/>
-                        <uc:My_TextBox Grid.Column="1" Grid.Row="2" Hint="karim@gmail.com"/>
-                        <uc:My_TextBox Grid.Column="1" Grid.Row="3" Hint="010-0000-0000"/>
-                        <uc:My_TextBox Grid.Column="1" Grid.Row="4" Hint="None"/>
-                        <uc:My_TextBox Grid.Column="1" Grid.Row="5" Hint="Karim"/>
+                        <TextBox Grid.Column="1" Grid.Row="0" Foreground="#ffffff"/>
+                        <TextBox Grid.Column="1" Grid.Row="1" />
+                        <TextBox Grid.Column="1" Grid.Row="2" />
+                        <TextBox Grid.Column="1" Grid.Row="3" />
+                        <TextBox Grid.Column="1" Grid.Row="4" />
+                        <TextBox Grid.Column="1" Grid.Row="5" />
+                        <TextBox Grid.Column="1" Grid.Row="6" />
+                        <TextBox Grid.Column="1" Grid.Row="7" />
 
-                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Margin="0 10">
-
-                        </StackPanel>
-
-                        <Grid Grid.Column="1" Grid.Row="7" Margin="0 40 0 0">
+                        <Grid Grid.Column="1" Grid.Row="8" Margin="0 40 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
