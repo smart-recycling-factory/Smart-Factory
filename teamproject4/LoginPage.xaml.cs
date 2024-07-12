@@ -8,10 +8,6 @@ using teamproject4.Models;
 namespace Smart_LoginPage
 {
     public partial class LoginPage : MetroWindow
-    /// <summary>
-    /// Interaction logic for LoginPage.xaml
-    /// </summary>
-    public partial class LoginPage : Window
     {
         // 데이터베이스 연결 문자열
         string CONN = "Data Source=localhost;Initial Catalog=smart_factory;Persist Security Info=True;User ID=sa;Encrypt=False;Password=mssql_p@ss";
@@ -41,8 +37,8 @@ namespace Smart_LoginPage
                                      FROM [dbo].[employee] 
                                      WHERE [LoginId] = @LoginId AND [LoginPw] = @LoginPw";
 
-                    string textboxID = textbox_ID.Text; // TextBox의 Text 속성 값 받아오기.
-                    string textboxPW = textbox_PW.Text; // TextBox의 Text 속성 값 받아오기.
+                    string textboxID = textbox_ID.Text; // TextBox의 Text 속성 값을 가져옵니다.
+                    string textboxPW = textbox_PW.Text; // TextBox의 Text 속성 값을 가져옵니다.
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -55,7 +51,7 @@ namespace Smart_LoginPage
                         if (loginStatus == 1)
                         {
                             MessageBox.Show("로그인 성공!");
-                            // 로그인 성공 후 추가 동작 작성
+                            // 로그인 성공 후 추가 동작을 여기에 작성합니다.
                         }
                         else
                         {
