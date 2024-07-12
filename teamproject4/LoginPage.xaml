@@ -52,22 +52,6 @@
             </Grid>
         </ControlTemplate>
     </Window.Template>
-    <!--상단바 아이콘 설정
-    <mah:MetroWindow.RightWindowCommands>
-        <mah:WindowCommands>
-            <Button Command="{Binding SomeCommand}" ToolTip="SignalCellular3">
-                <iconPcks:PackIconMaterial Kind="SignalCellular3"/>
-            </Button>
-
-            <Button Command="{Binding SomeCommand}" ToolTip="Wifi">
-                <iconPcks:PackIconMaterial Kind="Wifi"/>
-            </Button>
-
-            <Button Command="{Binding SomeCommand}" ToolTip="Battery">
-                <iconPcks:PackIconMaterial Kind="Battery"/>
-            </Button>
-        </mah:WindowCommands>
-        </mah:MetroWindow.RightWindowCommands-->
 
     <Grid Background="#CAC6BD">
         <Grid.RowDefinitions>
@@ -99,7 +83,6 @@
                 <iconPcks:PackIconMaterial Kind="Lock" Width="24" Height="30" VerticalAlignment="Center" Margin="0,0,10,0" />
                 <TextBox x:Name="textbox_PW" TextWrapping="Wrap" Width="264" Background="#CAC6BD" BorderBrush="#5F7290" BorderThickness="2"/>
             </StackPanel>
-            <!--<StackPanel Grid.Row="2" Margin="0,0,0,0">-->
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="BtnLogin" Content="로그인" Margin="0,0,0,0" Width="100" Height="40" Background="#5F7290" Click="BtnLogin_Click"/>
@@ -113,7 +96,6 @@
                 <Button x:Name="BtnSignup" Content="회원가입" Width="100" Height="30" FontSize="11" Background="#5F7290" Margin="20"  HorizontalContentAlignment="Center" Click="BtnSignup_Click"/>
             </StackPanel>
 
-            <!--</StackPanel>-->
         </Grid>
 
     </Grid>

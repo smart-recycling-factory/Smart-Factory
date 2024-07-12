@@ -68,14 +68,14 @@
                         <TextBlock Grid.Row="6" Text="LoginId" Style="{StaticResource text}"/>
                         <TextBlock Grid.Row="7" Text="PassWord" Style="{StaticResource text}"/>
 
-                        <TextBox Grid.Column="1" Grid.Row="0" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,50,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2" />
-                        <TextBox Grid.Column="1" Grid.Row="1" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,80,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox Grid.Column="1" Grid.Row="2" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-105,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox Grid.Column="1" Grid.Row="3" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-75,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox Grid.Column="1" Grid.Row="4" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-140,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox Grid.Column="1" Grid.Row="5" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,80,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox Grid.Column="1" Grid.Row="6" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,20,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox Grid.Column="1" Grid.Row="7" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-20,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtName" Grid.Column="1" Grid.Row="0" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,50,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2" />
+                        <TextBox x:Name="TxtGender" Grid.Column="1" Grid.Row="1" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,80,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtEmail" Grid.Column="1" Grid.Row="2" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-105,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtPhone" Grid.Column="1" Grid.Row="3" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-75,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtAddress" Grid.Column="1" Grid.Row="4" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-140,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtPosition" Grid.Column="1" Grid.Row="5" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,80,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtLoginId" Grid.Column="1" Grid.Row="6" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,20,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtLoginPwd" Grid.Column="1" Grid.Row="7" Foreground="#5F7290" FontWeight="ExtraBold" Margin="0,0,-20,0" Opacity="0.7" Background="#CAC6BD" BorderBrush="#494351" BorderThickness="2"/>
 
                         <Grid Grid.Column="1" Grid.Row="8" Margin="0 40 0 0">
                             <Grid.ColumnDefinitions>
@@ -83,9 +83,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <!--<Button x:Name="BtnCancel" Content="Cancel" Margin="0 0 10 0" Style="{StaticResource buttonBlack }" Click="BtnCancel_Click"/>-->
                             <Button x:Name="BtnCancel" Content="Cancel" Margin="0,0,10,0" Width="80" Height="40" Background="#5F7290" Click="BtnCancel_Click"/>
-                            <!--<Button x:Name="BtnSave" Content="Save" Margin="10 0 0 0" Grid.Column="1" Style="{StaticResource buttonMainGreen}" Click="BtnSave_Click" />-->
                             <Button x:Name="BtnSave" Content="Save" Margin="10,0,0,0"  Grid.Column="1" Width="80" Height="40" Background="#5F7290" Click="BtnSave_Click" />
                         </Grid>
 
