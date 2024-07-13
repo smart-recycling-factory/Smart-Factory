@@ -1,0 +1,43 @@
+﻿<Application x:Class="SmartFactory.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SmartFactory"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+             StartupUri="MainWindow.xaml">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro 적용 스타일 시작 -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <!-- Theme, Light/Dark 23색상 적용 -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Emerald.xaml" />
+
+
+                <ResourceDictionary Source="Styles/AddButton.xaml" />
+                <ResourceDictionary Source="Styles/Button.xaml" />
+                <ResourceDictionary Source="Styles/GridButtonIcon.xaml" />
+                <ResourceDictionary Source="Styles/GridEditButton.xaml" />
+                <ResourceDictionary Source="Styles/GridRemoveButton.xaml" />
+                
+                <ResourceDictionary Source="Styles/Management.xaml" />
+                
+                <ResourceDictionary Source="Styles/MenuButton.xaml" />
+                <ResourceDictionary Source="Styles/MenuButtonIcon.xaml" />
+                
+                <ResourceDictionary Source="Styles/PagingButton.xaml" />
+                <ResourceDictionary Source="Styles/PagingButtonIcon.xaml" />
+                
+                <ResourceDictionary Source="Styles/TabButton.xaml" />
+                <ResourceDictionary Source="Styles/TextboxSearch.xaml" />
+                <ResourceDictionary Source="Styles/TextboxFilter.xaml" />
+                <ResourceDictionary Source="Styles/TopButton.xaml" />
+                
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
