@@ -63,7 +63,7 @@ namespace SmartFactory
                         if (loginStatus == 1)
                         {
                             Common.LogginedId = LoginId;
-                            Common.IsLogined = true; // 로그인 된 상태다!
+                            Common.IsLogined = true; // 로그인 된 상태
 
                             this.Hide();
                             MainWindow mainWindow = new MainWindow();

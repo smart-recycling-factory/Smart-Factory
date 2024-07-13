@@ -88,7 +88,7 @@
 
                     <!-- 메뉴 버튼 -->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button x:Name="BtnHome" Style="{StaticResource MenuButton}" Click="BtnHome_Click" Background="#D0E1E9" IsEnabled="True">
+                        <Button x:Name="BtnHome" Style="{StaticResource MenuButton}" Click="BtnHome_Click" IsEnabled="True">
                             <StackPanel Orientation="Horizontal">
                                 <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource MenuButtonIcon}" Foreground="White"/>
                                 <TextBlock Text="Home" Foreground="White" />

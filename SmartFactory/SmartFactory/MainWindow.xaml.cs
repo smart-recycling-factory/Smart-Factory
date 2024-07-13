@@ -28,11 +28,23 @@ namespace SmartFactory
             {
                 BtnLogin.IsEnabled = false;
                 BtnLogout.IsEnabled = true;
+                BtnOn.IsEnabled = true;
+                BtnOff.IsEnabled = true;
+
+                BtnHome.IsEnabled = true;
+                BtnGraph.IsEnabled = true;
+                BtnManagement.IsEnabled = true;
             }
             else
             {
                 BtnLogin.IsEnabled = true;
                 BtnLogout.IsEnabled = false;
+                BtnOn.IsEnabled = false;
+                BtnOff.IsEnabled = false;
+
+                BtnHome.IsEnabled = false;
+                BtnGraph.IsEnabled = false;
+                BtnManagement.IsEnabled = false;
             }
         }
 
@@ -47,7 +59,30 @@ namespace SmartFactory
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
+            var res = MessageBox.Show("로그아웃 하시겠습니까?", "로그아웃창", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.Yes)
+            {
+                BtnLogin.IsEnabled = true;
+                BtnLogout.IsEnabled = false;
+                BtnOn.IsEnabled = false;
+                BtnOff.IsEnabled = false;
 
+                this.Hide();
+
+                Login login = new Login();
+                login.ShowDialog();
+
+                if (login.DialogResult == true)
+                {
+                    // 로그인 성공 시 다시 메인 창
+                    this.Show();
+                }
+                else
+                {
+                    // 로그인 창에서 취소됐을 경우 종료 처리 등
+                    Application.Current.Shutdown();
+                }
+            }
         }
 
         private void BtnOn_Click(object sender, RoutedEventArgs e)

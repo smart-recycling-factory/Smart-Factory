@@ -35,7 +35,11 @@
                 <ResourceDictionary Source="Styles/TextboxSearch.xaml" />
                 <ResourceDictionary Source="Styles/TextboxFilter.xaml" />
                 <ResourceDictionary Source="Styles/TopButton.xaml" />
-                
+
+                <!-- 회원가입 -->
+                <ResourceDictionary Source="Styles/Signup.xaml" />
+
+
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
