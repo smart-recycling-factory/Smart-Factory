@@ -1,24 +1,13 @@
 ﻿using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore;
-using Microsoft.Data.SqlClient;
 using SkiaSharp;
-using SmartFactory;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using SmartFactory.Models;
 using System.Windows.Media.Animation;
 
 namespace SmartFactory.Views
@@ -55,20 +44,39 @@ namespace SmartFactory.Views
 
     public class ViewModel
     {
-        public int plastic { get; private set; }
-        public int paper { get; private set; }
-        public int can { get; private set; }
+        public int red { get; private set; }
+        public int green { get; private set; }
+        public int blue { get; private set; }
 
-        public ISeries[] Series { get; private set; }
-
+        public ISeries[] PieSeries { get; private set; }
+        public ISeries[] ColumnSeries { get; private set; }
+        public Axis[] XAxes { get; private set; }
 
         public ViewModel()
         {
-            Series = new ISeries[]
+            PieSeries = new ISeries[]
             {
                 new PieSeries<double> { Values = new double[] { 0 } },
                 new PieSeries<double> { Values = new double[] { 0 } },
                 new PieSeries<double> { Values = new double[] { 0 } }
+            };
+
+            ColumnSeries = new ISeries[]
+            {
+                new ColumnSeries<double> { Name = "Category 1", Values = new double[] { 0 } },
+                new ColumnSeries<double> { Name = "Category 2", Values = new double[] { 0 } },
+                new ColumnSeries<double> { Name = "Category 3", Values = new double[] { 0 } }
+            };
+
+            XAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Labels = new string[] { "Category 1", "Category 2", "Category 3" },
+                    LabelsRotation = 0,
+                    SeparatorsPaint = new SolidColorPaint(new SKColor(200, 200, 200)),
+                    TicksPaint = new SolidColorPaint(new SKColor(35, 35, 35))
+                }
             };
         }
 
@@ -80,44 +88,61 @@ namespace SmartFactory.Views
                 {
                     conn.Open();
 
-                    using (var Pcount = new SqlCommand(Result.RESULT_SELECT_PLASTIC, conn))
+                    using (var Pcount = new SqlCommand(Models.Result.RESULT_SELECT_PLASTIC, conn))
                     {
                         var P_result = Pcount.ExecuteScalar();
-                        plastic = P_result != null ? Convert.ToInt32(P_result) : 0;
+                        red = P_result != null ? Convert.ToInt32(P_result) : 0;
                     }
 
-                    using (var Rcount = new SqlCommand(Result.RESULT_SELECT_PAPER, conn))
+                    using (var Rcount = new SqlCommand(Models.Result.RESULT_SELECT_PAPER, conn))
                     {
                         var R_result = Rcount.ExecuteScalar();
-                        paper = R_result != null ? Convert.ToInt32(R_result) : 0;
+                        green = R_result != null ? Convert.ToInt32(R_result) : 0;
                     }
 
-                    using (var Ccount = new SqlCommand(Result.RESULT_SELECT_CAN, conn))
+                    using (var Ccount = new SqlCommand(Models.Result.RESULT_SELECT_CAN, conn))
                     {
                         var C_result = Ccount.ExecuteScalar();
-                        can = C_result != null ? Convert.ToInt32(C_result) : 0;
+                        blue = C_result != null ? Convert.ToInt32(C_result) : 0;
                     }
 
-                    // Series 속성 업데이트 및 색상 설정
-                    Series = new ISeries[]
+                    // PieSeries 업데이트
+                    PieSeries = new ISeries[]
                     {
                         new PieSeries<double>
                         {
-                            Values = new double[] { plastic },
-                            //Fill = new SolidColorPaint(SKColors.Red) // 빨간색
-                            Fill = new SolidColorPaint(new SKColor(0xD0, 0xE1, 0xE9))  // #D0E1E9 색상
+                            Values = new double[] { red },
+                            Fill = new SolidColorPaint(SKColors.Red)
                         },
                         new PieSeries<double>
                         {
-                            Values = new double[] { paper },
-                            //Fill = new SolidColorPaint(SKColors.Green) // 초록색
-                            Fill = new SolidColorPaint(new SKColor(0xA1, 0xC2, 0xD5))  // #A1C2D5 색상
+                            Values = new double[] { green },
+                            Fill = new SolidColorPaint(SKColors.Green)
                         },
                         new PieSeries<double>
                         {
-                            Values = new double[] { can },
-                            //Fill = new SolidColorPaint(SKColors.Blue) // 파란색
-                            Fill = new SolidColorPaint(new SKColor(0xCA, 0xC6, 0xBD))  // #CAC6BD 색상
+                            Values = new double[] { blue },
+                            Fill = new SolidColorPaint(SKColors.Blue)
+                        }
+                    };
+
+                    // ColumnSeries 업데이트
+                    ColumnSeries = new ISeries[]
+                    {
+                        new ColumnSeries<double>
+                        {
+                            Name = "Plastic",
+                            Values = new double[] { red }
+                        },
+                        new ColumnSeries<double>
+                        {
+                            Name = "Paper",
+                            Values = new double[] { green }
+                        },
+                        new ColumnSeries<double>
+                        {
+                            Name = "Can",
+                            Values = new double[] { blue }
                         }
                     };
                 }
@@ -126,7 +151,6 @@ namespace SmartFactory.Views
             {
                 MessageBox.Show("데이터 조회 중 오류가 발생했습니다: " + ex.Message);
             }
-
         }
     }
 }

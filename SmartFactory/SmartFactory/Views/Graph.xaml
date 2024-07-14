@@ -15,8 +15,13 @@
 
         <Grid>
             <Grid Margin="10">
-                <Label Content="그래프 페이지" FontSize="15" Foreground="White" />
-                <lvc:PieChart Series="{Binding Series}" Margin="10"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--<Label Content="그래프 페이지" FontSize="15" Foreground="White" />-->
+                <lvc:PieChart Series="{Binding PieSeries}" Grid.Column="0"/>
+                <lvc:CartesianChart Series="{Binding ColumnSeries}" XAxes="{Binding XAxes}" Grid.Column="1" />
             </Grid>
         </Grid>
     </Border>
