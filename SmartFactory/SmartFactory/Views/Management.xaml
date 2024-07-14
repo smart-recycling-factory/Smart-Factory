@@ -5,7 +5,7 @@
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SmartFactory.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Loaded="UserControl_Loaded"
              Height="600" Width="840" Background="Transparent">
     
     <UserControl.Resources>
@@ -17,7 +17,7 @@
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#A1C2D5" />
         </Border.Effect>
 
-        <Grid Grid.Column="1" Margin="30 20 20 20">
+        <Grid Grid.Column="1" Margin="24,20,24,20" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -31,23 +31,14 @@
             </Grid.RowDefinitions>
 
             <!-- Search TextBox -->
-            <Grid Width="300" HorizontalAlignment="Left" Margin="0,0,0,55" Grid.RowSpan="2">
-                <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
-                        Panel.ZIndex="1" Text="Serch here..."
-                        Visibility="{Binding ElementName=txtSearch, Converter={StaticResource BoolToVis}}"/>
-
-                <TextBox x:Name="txtSearch" Style="{StaticResource TextboxSearch}"/>
-
-                <icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
-                                    Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
-            </Grid>
+            
 
             <!-- Page Title -->
-            <TextBlock Text="Members" Grid.Row="1" FontWeight="SemiBold" Margin="0,20,0,55"
-                    HorizontalAlignment="Left" Foreground="#121518" Grid.RowSpan="2"/>
+            <TextBlock Text="Members" Grid.Row="0" FontWeight="SemiBold" Margin="0,20,0,55"
+                    HorizontalAlignment="Left" Foreground="#121518"/>
 
             <!-- Add Button -->
-            <Button Style="{StaticResource AddButton}" Margin="0,20,0,55" Grid.RowSpan="2" Grid.Row="1">
+            <Button Style="{StaticResource AddButton}" Margin="0,20,0,55" Grid.RowSpan="2" Grid.Row="0">
                 <StackPanel Orientation="Horizontal">
                     <icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                     <TextBlock Text="Add New Member"/>
@@ -81,11 +72,10 @@
                 <TextBox x:Name="txtFilter" Style="{StaticResource TextboxFilter}"/>
 
                 </Grid>
-                <CheckBox Style="{DynamicResource CheckBoxStyle}" Grid.Row="5" Content="asdasd" Margin="0,37,0,126" Grid.RowSpan="3"/>
                 <!-- Members Datagrid -->
                 <DataGrid x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle}" CellStyle="{DynamicResource DataGridCellStyle}" 
                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" 
-                      RowStyle="{DynamicResource DataGridRowStyle}" Grid.Row="5" Margin="0,10,0,0">
+                      RowStyle="{DynamicResource DataGridRowStyle}" Grid.Row="5" >
                     <DataGrid.Columns>
                         <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle}">
                             <DataGridCheckBoxColumn.HeaderTemplate>

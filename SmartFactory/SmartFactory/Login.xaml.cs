@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using SmartFactory;
 using SmartFactory.Helpers;
-using Microsoft.Data.SqlClient;
 
 namespace SmartFactory
 {
