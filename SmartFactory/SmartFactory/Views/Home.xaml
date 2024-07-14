@@ -13,7 +13,10 @@
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#A1C2D5" />
         </Border.Effect>
 
-            <Image Source="/images/MainImg.png" 
-                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid Margin="10">
+            <!-- 추후 내용 들어갈 예정 -->
+            <TextBlock Text="안녕하세요~?" Foreground="White" FontSize="30"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
     </Border>
 </UserControl>
