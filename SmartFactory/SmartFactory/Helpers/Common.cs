@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace teamproject4.Helpers
+namespace SmartFactory.Helpers
 {
     class Common
     {

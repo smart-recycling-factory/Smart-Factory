@@ -1,23 +1,26 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using Smart_LoginPage;
-using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Xml.Linq;
-using teamproject4;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace teamproject4
+
+namespace SmartFactory
 {
-    /// <summary>
-    /// membership.xaml에 대한 상호 작용 논리
-    /// </summary>
-    public partial class membership : Window
+    public partial class Signup : Window
     {
-        //string CONN = "Data Source=localhost;Initial Catalog=smart_factory;Persist Security Info=True;User ID=sa;Encrypt=False;Password=mssql_p@ss";
-        public membership()
+        public Signup()
         {
             InitializeComponent();
         }
@@ -35,9 +38,9 @@ namespace teamproject4
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            LoginPage loginPage = new LoginPage();
-            loginPage.Topmost = true;
-            loginPage.ShowDialog();
+            Login login = new Login();
+            login.Topmost = true;
+            login.ShowDialog();
         }
 
         // 저장 버튼 클릭
@@ -104,9 +107,9 @@ namespace teamproject4
             if (SignUpProcess())
             {
                 this.Close(); // 회원정보를 문제없이 입력했으면 회원가입창을 닫는다
-                LoginPage loginPage = new LoginPage();
+                Login login = new Login();
                 //loginPage.Topmost = true;
-                loginPage.ShowDialog();
+                login.ShowDialog();
             }
         }
 
@@ -120,7 +123,7 @@ namespace teamproject4
             string position = TxtPosition.Text;
             string LoginId = TxtLoginId.Text;
             string LoginPw = TxtLoginPwd.Text;
-            int LoginIdx = 1;
+            int LoginIdx = 0;
 
             try
             {
@@ -196,9 +199,7 @@ namespace teamproject4
                             MessageBox.Show("회원가입에 실패했습니다.", "실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
-
                     }
-
                 }
             }
             catch (Exception ex)

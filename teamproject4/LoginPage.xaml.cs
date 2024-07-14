@@ -3,6 +3,7 @@ using System;
 using System.Data.SqlClient;
 using System.Windows;
 using teamproject4;
+using teamproject4.Helpers;
 using teamproject4.Models;
 
 namespace Smart_LoginPage
@@ -25,6 +26,7 @@ namespace Smart_LoginPage
             Membership.ShowDialog();
         }
 
+        // 로그인 버튼
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -50,8 +52,15 @@ namespace Smart_LoginPage
 
                         if (loginStatus == 1)
                         {
-                            MessageBox.Show("로그인 성공!");
-                            // 로그인 성공 후 추가 동작을 여기에 작성합니다.
+                            Common.LogginedId = textboxID;
+                            Common.IsLogined = true; // 로그인 된 상태다!
+
+                            this.Hide();
+
+                            homepage homepage = new homepage();
+                            homepage.ShowDialog();
+
+                            
                         }
                         else
                         {
