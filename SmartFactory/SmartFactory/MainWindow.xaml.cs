@@ -85,7 +85,6 @@ namespace SmartFactory
             }
         }
 
-
         // On 버튼
         private void BtnOn_Click(object sender, RoutedEventArgs e)
         {
@@ -101,18 +100,21 @@ namespace SmartFactory
         // Home 버튼
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
+            MainImg.Opacity = 0;
             ContentArea.Content = new Views.Home();
         }
 
         // Graph 버튼
         private void BtnGraph_Click(object sender, RoutedEventArgs e)
         {
+            MainImg.Opacity = 0;
             ContentArea.Content = new Views.Graph();
         }
 
         // Management 버튼
         private void BtnManagement_Click(object sender, RoutedEventArgs e)
         {
+            MainImg.Opacity = 0;
             ContentArea.Content = new Views.Management();
         }
 

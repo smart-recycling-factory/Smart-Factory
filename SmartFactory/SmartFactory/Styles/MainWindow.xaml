@@ -42,7 +42,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
+        
         <Style.Triggers>
             <!-- 버튼 비활성화 트리거 -->
             <Trigger Property="IsEnabled" Value="False">
@@ -94,6 +94,13 @@
                 <Setter Property="Cursor" Value="Hand" />
                 <Setter Property="Background" Value="#D0E1E9" />
                 <Setter Property="Foreground" Value="#ffffff" />
+                <Setter Property="BorderBrush" Value="#D0E1E9" />
+                <Setter Property="BorderThickness" Value="1.5" />
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="0" Color="#D0E1E9" BlurRadius="10"/>
+                    </Setter.Value>
+                </Setter>
             </MultiTrigger>
         </Style.Triggers>
     </Style>

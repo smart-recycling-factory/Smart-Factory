@@ -119,9 +119,10 @@
                     Background="#dcdcdc" Click="BtnExit_Click">
                 <icon:PackIconVaadinIcons Kind="Exit"/>
             </Button>
-
+            
+            <!-- 로그인 전 메인페이지의 화면부분 -->
             <Grid Grid.Row="1" Grid.Column="1" Margin="10">
-                <Image Source="/images/MainImg.png" 
+                <Image x:Name="MainImg" Source="/images/MainImg.png" 
                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
 
