@@ -12,7 +12,7 @@ namespace SmartFactory.Models
         public int Paper { get; set; }
         public int Can { get; set; }
 
-        public DateTime date { get; set; }
+        public string date { get; set; }
 
         public static readonly string RESULT_INSERT_QUERY = @"INSERT INTO [dbo].[result]
                                                                            ([plastic]
@@ -20,10 +20,10 @@ namespace SmartFactory.Models
                                                                            ,[can]
                                                                            ,[date])
                                                                      VALUES
-                                                                           (plastic, int,
-                                                                           ,paper, int,
-                                                                           ,can, int,
-                                                                           ,[date], datetime)";
+                                                                           (@plastic
+                                                                           ,@paper
+                                                                           ,@can
+                                                                           ,@date)";
 
         public static readonly string RESULT_SELECT_PLASTIC = @"SELECT 
                                                                 SUM(CASE WHEN [plastic] = 1 THEN 1 ELSE 0 END) AS plastic_count
