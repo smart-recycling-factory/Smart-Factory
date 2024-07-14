@@ -19,11 +19,25 @@
         </Setter>
 
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
+
+            <!-- 버튼 비활성화 트리거 -->
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Cursor" Value="Arrow" />
+            </Trigger>
+
+            <!-- 버튼 활성화 및 마우스 오버 트리거 -->
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsMouseOver" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Cursor" Value="Hand" />
                 <Setter Property="Background" Value="#D0E1E9" />
                 <Setter Property="Foreground" Value="#ffffff" />
-            </Trigger>
+            </MultiTrigger>
         </Style.Triggers>
+
+
     </Style>
 
 </ResourceDictionary>

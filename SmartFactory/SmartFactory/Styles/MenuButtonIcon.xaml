@@ -3,28 +3,11 @@
                     xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks">
 
     <Style x:Key="MenuButtonIcon" TargetType="icon:PackIconMaterial">
+        <Setter Property="Foreground" Value="White" />
         <Setter Property="Width" Value="15" />
         <Setter Property="Height" Value="15" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Margin" Value="20 2 20 0" />
-        <Setter Property="Cursor" Value="Hand" />
-
-        <Style.Triggers>
-            <!-- 버튼 비활성화 트리거 -->
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="Silver" />
-                <Setter Property="Cursor" Value="Arrow" />
-            </Trigger>
-
-            <!-- 버튼 활성화 및 마우스 오버 트리거 -->
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsEnabled" Value="True" />
-                    <Condition Property="IsMouseOver" Value="True" />
-                </MultiTrigger.Conditions>
-                <Setter Property="Cursor" Value="Hand" />
-            </MultiTrigger>
-        </Style.Triggers>
-
     </Style>
+    
 </ResourceDictionary>
