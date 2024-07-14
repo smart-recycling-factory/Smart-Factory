@@ -120,6 +120,11 @@
                 <icon:PackIconVaadinIcons Kind="Exit"/>
             </Button>
 
+            <Grid Grid.Row="1" Grid.Column="1" Margin="10">
+                <Image Source="/images/MainImg.png" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+
             <!-- 화면이 바뀌는 부분 -->
             <ContentControl x:Name="ContentArea" Grid.Column="1" Grid.Row="1" />
         </Grid>
