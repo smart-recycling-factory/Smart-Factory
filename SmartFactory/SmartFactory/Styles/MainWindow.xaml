@@ -64,7 +64,7 @@
 
     <Style x:Key="MenuButton"  TargetType="Button">
         <Setter Property="Background" Value="#A1C2D5" />
-        <Setter Property="Foreground" Value="White" />
+        <!--<Setter Property="Foreground" Value="White" />-->
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Height" Value="35" />
         <Setter Property="Margin" Value="15 3" />
@@ -98,10 +98,24 @@
                 <Setter Property="BorderThickness" Value="1.5" />
                 <Setter Property="Effect">
                     <Setter.Value>
-                        <DropShadowEffect ShadowDepth="0" Color="#D0E1E9" BlurRadius="10"/>
+                        <DropShadowEffect ShadowDepth="0" Color="black" BlurRadius="10"/>
                     </Setter.Value>
                 </Setter>
+                <!--<Setter Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#D0E1E9" />
+                </Setter>-->
             </MultiTrigger>
+
+            <!--<MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter
+            </MultiTrigger>-->
+
+            <Trigger Property="IsPressed" Value="True">
+            </Trigger>
         </Style.Triggers>
     </Style>
 

@@ -15,9 +15,9 @@
     </WindowChrome.WindowChrome>
 
     <!-- 창 경계 색 및 그림자 (블러처리) -->
-    <Border BorderBrush="#A1C2D5" BorderThickness="1.5" CornerRadius="30" Background="#494351" Margin="10" >
+    <Border BorderBrush="Black" BorderThickness="0.5" CornerRadius="30" Background="#494351" Margin="10">
         <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" BlurRadius="15"  Color="#A1C2D5" />
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10"  Color="Black" />
         </Border.Effect>
 
         <Grid>
@@ -37,9 +37,9 @@
             </Button>
             
             <!-- 메뉴바 경계 색상 및 그림자 -->
-            <Border Grid.Row="1" Background="#5F7290" CornerRadius="0 50 0 30" BorderThickness="1.5" BorderBrush="#A1C2D5" Margin="-1.5,0,0,-1.5">
+            <Border Grid.Row="1" Background="#5F7290" CornerRadius="0 50 0 30" BorderBrush="black" >
                 <Border.Effect>
-                    <DropShadowEffect ShadowDepth="0" BlurRadius="15" Color="#A1C2D5" />
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="black" />
                 </Border.Effect>
 
                 <DockPanel>
