@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -24,6 +25,19 @@ namespace SmartFactory.Views
         public Management()
         {
             InitializeComponent();
+            this.Loaded += Management_Loaded;
+
+        }
+        
+        // 창 호출 애니메이션
+        private void Management_Loaded(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation fadeInAnimation = new DoubleAnimation();
+            fadeInAnimation.From = 0;
+            fadeInAnimation.To = 1;
+            fadeInAnimation.Duration = TimeSpan.FromSeconds(0.8);
+
+            this.BeginAnimation(UserControl.OpacityProperty, fadeInAnimation);
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -57,7 +71,6 @@ namespace SmartFactory.Views
             members.Add(new Member { Number = "10", Character = "s", BgColor = (Brush)converter.ConvertFromString("#0ca678"), Name = "페드로", Position = "administrator", Email = "페드로@gmail.com", Phone = "010-9999-9999" });
 
             //membersDataGrid.ItemSource = members;\
-            membersDataGrid.ItemsSource = members;
         }
     }
 

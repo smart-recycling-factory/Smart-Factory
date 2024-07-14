@@ -13,11 +13,7 @@
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#A1C2D5" />
         </Border.Effect>
 
-        <Grid>
-            <Grid Margin="10">
             <Image Source="/images/MainImg.png" 
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Grid>
-        </Grid>
     </Border>
 </UserControl>

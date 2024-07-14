@@ -56,7 +56,8 @@ namespace SmartFactory
             login.Topmost = true;
             login.ShowDialog();
         }
-
+        
+        // 로그아웃 버튼
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
             var res = MessageBox.Show("로그아웃 하시겠습니까?", "로그아웃창", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -79,17 +80,19 @@ namespace SmartFactory
                 }
                 else
                 {
-                    // 로그인 창에서 취소됐을 경우 종료 처리 등
-                    Application.Current.Shutdown();
+                    //Application.Current.Shutdown();
                 }
             }
         }
 
+
+        // On 버튼
         private void BtnOn_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        // Off 버튼
         private void BtnOff_Click(object sender, RoutedEventArgs e)
         {
 

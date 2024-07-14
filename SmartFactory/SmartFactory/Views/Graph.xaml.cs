@@ -46,7 +46,7 @@ namespace SmartFactory.Views
             DoubleAnimation fadeInAnimation = new DoubleAnimation();
             fadeInAnimation.From = 0;
             fadeInAnimation.To = 1;
-            fadeInAnimation.Duration = TimeSpan.FromSeconds(1);
+            fadeInAnimation.Duration = TimeSpan.FromSeconds(0.8);
 
             this.BeginAnimation(UserControl.OpacityProperty, fadeInAnimation);
         }

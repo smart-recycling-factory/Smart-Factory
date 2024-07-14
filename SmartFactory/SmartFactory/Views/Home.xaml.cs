@@ -14,30 +14,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SmartFactory.Helpers;
+using SmartFactory.Models;
+using System.Windows.Media.Animation;
 
 namespace SmartFactory.Views
 {
-    /// <summary>
-    /// Home.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class Home : UserControl
     {
         public Home()
         {
             InitializeComponent();
+            this.Loaded += Home_Loaded;
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+
+        // 창 호출 애니메이션
+        private void Home_Loaded(object sender, RoutedEventArgs e)
         {
-            //if (!String.IsNullOrEmpty(Common.LogginedId) && Common.IsLogined == true)
-            //{
-            //    BtnLogin.IsEnabled = false;
-            //    BtnLogout.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    BtnLogin.IsEnabled = true;
-            //    BtnLogout.IsEnabled = false;
-            //}
+            DoubleAnimation fadeInAnimation = new DoubleAnimation();
+            fadeInAnimation.From = 0;
+            fadeInAnimation.To = 1;
+            fadeInAnimation.Duration = TimeSpan.FromSeconds(0.8);
+
+            this.BeginAnimation(UserControl.OpacityProperty, fadeInAnimation);
         }
     }
 }

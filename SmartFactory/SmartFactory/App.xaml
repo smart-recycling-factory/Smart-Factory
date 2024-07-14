@@ -16,30 +16,14 @@
                 <!-- Theme, Light/Dark 23색상 적용 -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Emerald.xaml" />
 
-
-                <ResourceDictionary Source="Styles/AddButton.xaml" />
-                <ResourceDictionary Source="Styles/Button.xaml" />
-                <ResourceDictionary Source="Styles/GridButtonIcon.xaml" />
-                <ResourceDictionary Source="Styles/GridEditButton.xaml" />
-                <ResourceDictionary Source="Styles/GridRemoveButton.xaml" />
-                
-                <ResourceDictionary Source="Styles/Management.xaml" />
-                
-                <ResourceDictionary Source="Styles/MenuButton.xaml" />
-                <ResourceDictionary Source="Styles/MenuButtonIcon.xaml" />
-                
-                <ResourceDictionary Source="Styles/PagingButton.xaml" />
-                <ResourceDictionary Source="Styles/PagingButtonIcon.xaml" />
-                
-                <ResourceDictionary Source="Styles/TabButton.xaml" />
-                <ResourceDictionary Source="Styles/TextboxSearch.xaml" />
-                <ResourceDictionary Source="Styles/TextboxFilter.xaml" />
-                <ResourceDictionary Source="Styles/TopButton.xaml" />
-
                 <!-- 회원가입 -->
                 <ResourceDictionary Source="Styles/Signup.xaml" />
-
-
+                
+                <!-- 메인페이지 -->
+                <ResourceDictionary Source="Styles/MainWindow.xaml" />
+                
+                <!-- Management 페이지 -->
+                <ResourceDictionary Source="Styles/Management.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
