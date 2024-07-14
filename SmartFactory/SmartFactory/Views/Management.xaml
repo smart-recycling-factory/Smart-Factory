@@ -13,9 +13,9 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </UserControl.Resources>
 
-    <Border BorderBrush="#A1C2D5" BorderThickness="1.5" CornerRadius="30" Background="#494351" Margin="5">
+    <Border BorderBrush="#3C3643" BorderThickness="1" CornerRadius="30" Background="#494351" Margin="5">
         <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#A1C2D5" />
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#3C3643" />
         </Border.Effect>
 
         <Grid Margin="24,20,24,20" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -27,14 +27,6 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
-
-            <!-- Search TextBox -->
-            
-
-            <!-- Page Title -->
-            <TextBlock Text="Members" Grid.Row="0" FontWeight="SemiBold" Margin="0,20,0,55"
-                    HorizontalAlignment="Left" Foreground="#121518"/>
 
             <!-- Add Button -->
             <Button Style="{StaticResource AddButton}" Margin="0,20,0,55" Grid.RowSpan="2" Grid.Row="0">
@@ -44,20 +36,20 @@
                 </StackPanel>
             </Button>
 
-                <!-- Seprator -->
-                <Separator Height="1" Grid.Row="2" Background="#dae2ea" Margin="0,54,0,10" Grid.RowSpan="2"/>
+            <!-- 구분선 -->
+            <Separator Height="1" Grid.Row="2" Background="#dae2ea" Margin="0,54,0,10" Grid.RowSpan="2"/>
 
-                <!-- Tap Buttons -->
+            <!-- Tap Buttons -->
             <Grid Grid.Row="2" Grid.RowSpan="2">
                 <lvc:PieChart Series="{Binding PieSeries}" HorizontalAlignment="Left"/>
                 <lvc:CartesianChart Series="{Binding ColumnSeries}" XAxes="{Binding XAxes}" HorizontalAlignment="Right" />
             </Grid>
 
-                <!-- Counter Title -->
-                <TextBlock Text="Member" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
-                       Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <!-- Counter Title -->
+            <TextBlock Text="Member" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
+                    Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-                <!-- Members Datagrid -->
+            <!-- Members Datagrid -->
             <DataGrid x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle}" CellStyle="{DynamicResource DataGridCellStyle}" 
                       ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" 
                       RowStyle="{DynamicResource DataGridRowStyle}" Grid.Row="5" ItemsSource="{Binding}" >
