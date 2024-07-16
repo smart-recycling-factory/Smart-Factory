@@ -11,10 +11,12 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CornerRadius="30" />
     </WindowChrome.WindowChrome>
+    
     <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="30" Background="White" Margin="5">
         <Border.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Gray" />
         </Border.Effect>
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="350"/>

@@ -13,11 +13,8 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </UserControl.Resources>
 
-    <Border BorderBrush="#3C3643" BorderThickness="1" CornerRadius="30" Background="#494351" Margin="5">
-        <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#3C3643" />
-        </Border.Effect>
-
+    <Border Style="{StaticResource BorderLine}">
+        
         <Grid Margin="24,20,24,20" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />

@@ -15,10 +15,11 @@
     </WindowChrome.WindowChrome>
 
     <!-- 창 경계 색 및 그림자 (블러처리) -->
-    <Border BorderBrush="#2D2933" CornerRadius="30" Background="#494351" Margin="10">
+    <!--<Border BorderBrush="#2D2933" CornerRadius="30" Background="#494351" Margin="10">
         <Border.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="10"  Color="#2D2933" />
-        </Border.Effect>
+        </Border.Effect>-->
+    <Border Style="{StaticResource BorderLine}">
 
         <Grid>
             <Grid.ColumnDefinitions>
