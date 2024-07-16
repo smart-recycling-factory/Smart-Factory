@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 
@@ -207,6 +208,12 @@ namespace SmartFactory
                 MessageBox.Show("오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        // 창이 열렸을 때 첫번째 입력 텍스트박스로 포커스
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            TxtName.Focus();
         }
     }
 }

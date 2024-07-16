@@ -113,7 +113,9 @@
                         <DropShadowEffect ShadowDepth="0" Color="black" BlurRadius="10"/>
                     </Setter.Value>
                 </Setter>
+
             </MultiTrigger>
+            
 
         </Style.Triggers>
     </Style>
