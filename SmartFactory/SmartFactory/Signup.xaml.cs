@@ -16,7 +16,6 @@ using System.Windows.Shapes;
 using System.Xml.Linq;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-
 namespace SmartFactory
 {
     public partial class Signup : Window
@@ -55,13 +54,13 @@ namespace SmartFactory
                 errMsg += "이름을 입력하세요\n";
             }
 
-            if (string.IsNullOrEmpty(TxtGender.Text)) // 아이디를 입력하지 않았을 때
+            if (string.IsNullOrEmpty(TxtGender.Text)) // 성별을 입력하지 않았을 때
             {
                 isFail = true;
                 errMsg += "성별을 입력하세요\n";
             }
 
-            if (string.IsNullOrEmpty(TxtEmail.Text)) // 비밀번호를 입력하지 않았을 때
+            if (string.IsNullOrEmpty(TxtEmail.Text)) // 이메일을 입력하지 않았을 때
             {
                 isFail = true;
                 errMsg += "이메일을 입력하세요\n";
@@ -73,22 +72,22 @@ namespace SmartFactory
                 errMsg += "전화번호를 입력하세요\n";
             }
 
-            if (string.IsNullOrEmpty(TxtAddress.Text)) // 성별을 입력하지 않았을 때
+            if (string.IsNullOrEmpty(TxtAddress.Text)) // 주소를 입력하지 않았을 때
             {
                 isFail = true;
                 errMsg += "주소를 입력하세요\n";
             }
-            if (string.IsNullOrEmpty(TxtPosition.Text)) // 성별을 입력하지 않았을 때
+            if (string.IsNullOrEmpty(TxtPosition.Text)) // 직급을 입력하지 않았을 때
             {
                 isFail = true;
                 errMsg += "직급을 입력하세요\n";
             }
-            if (string.IsNullOrEmpty(TxtLoginId.Text)) // 성별을 입력하지 않았을 때
+            if (string.IsNullOrEmpty(TxtLoginId.Text)) // 아이디를 입력하지 않았을 때
             {
                 isFail = true;
                 errMsg += "아이디를 입력하세요\n";
             }
-            if (string.IsNullOrEmpty(TxtLoginPwd.Text)) // 성별을 입력하지 않았을 때
+            if (string.IsNullOrEmpty(TxtLoginPwd.Text)) // 비밀번호를 입력하지 않았을 때
             {
                 isFail = true;
                 errMsg += "비밀번호를 입력하세요\n";
@@ -107,9 +106,8 @@ namespace SmartFactory
 
             if (SignUpProcess())
             {
-                this.Close(); // 회원정보를 문제없이 입력했으면 회원가입창을 닫는다
+                this.Close(); // 회원정보를 문제없이 입력했으면 회원가입창을 닫음
                 Login login = new Login();
-                //loginPage.Topmost = true;
                 login.ShowDialog();
             }
         }
@@ -210,7 +208,7 @@ namespace SmartFactory
             }
         }
 
-        // 창이 열렸을 때 첫번째 입력 텍스트박스로 포커스
+        // 창이 열렸을 때 텍스트박스로 포커스
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             TxtName.Focus();
