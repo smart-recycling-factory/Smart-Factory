@@ -77,7 +77,6 @@
 
     <Style x:Key="MenuButton"  TargetType="Button">
         <Setter Property="Background" Value="#A1C2D5" />
-        <!--<Setter Property="Foreground" Value="White" />-->
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Height" Value="35" />
         <Setter Property="Margin" Value="15 3" />
@@ -114,12 +113,8 @@
                         <DropShadowEffect ShadowDepth="0" Color="black" BlurRadius="10"/>
                     </Setter.Value>
                 </Setter>
-               
             </MultiTrigger>
 
-
-            <Trigger Property="IsPressed" Value="True">
-            </Trigger>
         </Style.Triggers>
     </Style>
 
