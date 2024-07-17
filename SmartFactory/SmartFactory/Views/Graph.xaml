@@ -8,11 +8,7 @@
         mc:Ignorable="d"
         Height="600" Width="840"  Background="Transparent">
 
-    <Border BorderBrush="#A1C2D5" BorderThickness="1.5" CornerRadius="30" Background="#494351" Margin="5">
-        <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#A1C2D5" />
-        </Border.Effect>
-
+    <Border Style="{StaticResource BorderLine}">
         <Grid>
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>

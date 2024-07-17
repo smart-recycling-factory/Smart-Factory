@@ -80,5 +80,31 @@ namespace SmartFactory
                 MessageBox.Show("데이터 조회 중 오류가 발생했습니다: " + ex.Message);
             }
         }
+
+        // 아이디 입력창으로 자동 포커스
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            TxtId.Focus();
+        }
+
+
+        #region 엔터키
+
+        private void TxtId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                PwdPw.Focus();
+            }
+        }
+
+        private void PwdPw_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                BtnLogin.Focus();
+            }
+        }
+        #endregion
     }
 }

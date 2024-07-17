@@ -180,7 +180,7 @@ namespace SmartFactory
                 });
             }
         }
-
+        
         private void SaveResultToDatabase(int plastic, int can, int paper)
         {
             // 분류 결과가 DB에 저장될 때마다 date값 저장
@@ -208,8 +208,6 @@ namespace SmartFactory
                     }
                 }
             }
-            // 저장 결과 메시지 박스
-            //MessageBox.Show($"{insRes} records inserted.");
         }
 
         // Home 버튼
