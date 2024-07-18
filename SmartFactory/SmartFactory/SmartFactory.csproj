@@ -9,8 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\economy.png" />
+    <None Remove="images\LoginPage.png" />
     <None Remove="images\LoginUser.png" />
     <None Remove="images\MainImg.png" />
+    <None Remove="images\Signup1.png" />
     <None Remove="images\User.png" />
   </ItemGroup>
 
@@ -28,8 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="images\Economy.png" />
+    <Resource Include="images\LoginPage.png" />
     <Resource Include="images\LoginUser.png" />
     <Resource Include="images\MainImg.png" />
+    <Resource Include="images\Signup1.png" />
     <Resource Include="images\User.png" />
   </ItemGroup>
 
