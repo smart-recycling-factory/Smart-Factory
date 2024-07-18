@@ -211,7 +211,7 @@ namespace SmartFactory
         // 창이 열렸을 때 텍스트박스로 포커스
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            TxtName.Focus();
+            TxtLoginId.Focus();
         }
     }
 }

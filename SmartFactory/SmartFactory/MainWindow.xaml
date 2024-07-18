@@ -122,8 +122,8 @@
             </Button>
             
             <!-- 로그인 전 메인페이지의 화면부분 -->
-            <Grid Grid.Row="1" Grid.Column="1" Margin="10">
-                <Image x:Name="MainImg" Source="/images/MainImg.png" 
+            <Grid Grid.Row="1" Grid.Column="1" Margin="5 -50 5 30">
+                <Image x:Name="MainImg" Source="/images/Economy.png" 
                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
 

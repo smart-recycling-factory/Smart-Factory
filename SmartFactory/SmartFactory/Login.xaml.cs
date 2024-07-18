@@ -87,6 +87,10 @@ namespace SmartFactory
             TxtId.Focus();
         }
 
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
         #region 엔터키
 
@@ -106,5 +110,11 @@ namespace SmartFactory
             }
         }
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        // 로그인 창 닫기
     }
 }
