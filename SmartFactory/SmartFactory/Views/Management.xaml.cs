@@ -3,25 +3,15 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore;
 using SkiaSharp;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data.SqlClient;
 using SmartFactory.Helpers;
 using SmartFactory.Models;
-using System.Data;
 
 namespace SmartFactory.Views
 {
@@ -31,24 +21,29 @@ namespace SmartFactory.Views
     public partial class Management : UserControl
     {
         public ViewModel1 ViewModel1 { get; private set; }
+        public ObservableCollection<Employees> Employees { get; set; }
+
         public Management()
         {
             InitializeComponent();
             this.Loaded += Management_Loaded;
             ViewModel1 = new ViewModel1();
             DataContext = ViewModel1;
+            Employees = new ObservableCollection<Employees>();
+            membersDataGrid.ItemsSource = Employees;
 
             ViewModel1.get_data_graph();
-
         }
-        
+
         // 창 호출 애니메이션
         private void Management_Loaded(object sender, RoutedEventArgs e)
         {
-            DoubleAnimation fadeInAnimation = new DoubleAnimation();
-            fadeInAnimation.From = 0;
-            fadeInAnimation.To = 1;
-            fadeInAnimation.Duration = TimeSpan.FromSeconds(0.8);
+            DoubleAnimation fadeInAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 1,
+                Duration = TimeSpan.FromSeconds(0.8)
+            };
 
             this.BeginAnimation(UserControl.OpacityProperty, fadeInAnimation);
         }
@@ -65,33 +60,66 @@ namespace SmartFactory.Views
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataSet dSet = new DataSet();
                 adapter.Fill(dSet, "Employees");
-                var Employees = new List<Employees>();
-                
+
                 foreach (DataRow row in dSet.Tables["Employees"].Rows)
                 {
                     Employees.Add(new Employees
                     {
-                        Name = Convert.ToString(row["Name"]),
-                        Gender = Convert.ToString(row["Gender"]),
-                        Position = Convert.ToString(row["Position"]),
-                        Email = Convert.ToString(row["Email"]),
-                        Phone = Convert.ToInt32(row["Phone"]),
-                        Address = Convert.ToString(row["Address"]),
+                        EmployeeId = Convert.ToInt32(row["employeeId"]),
+                        Name = Convert.ToString(row["name"]),
+                        Gender = Convert.ToString(row["gender"]),
+                        Position = Convert.ToString(row["position"]),
+                        Email = Convert.ToString(row["email"]),
+                        Phone = Convert.ToInt32(row["phone"]),
+                        Address = Convert.ToString(row["address"]),
                     });
                 }
-                this.DataContext = Employees;
             }
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            // 수정 로직
+            Signup signup = new Signup(this);
+            signup.ShowDialog();
         }
 
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
-
+            if (membersDataGrid.SelectedItem is Employees selectedEmployee)
+            {
+                using (SqlConnection conn = new SqlConnection(Helpers.Common.CONNSTRING))
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand(Models.Employees.EMPLOYEE_DELETE_QUERY, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@employeeId", selectedEmployee.EmployeeId);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("직원이 성공적으로 삭제되었습니다.");
+                                Employees.Remove(selectedEmployee);
+                            }
+                            else
+                            {
+                                MessageBox.Show("삭제할 직원을 찾을 수 없습니다.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("데이터 삭제 중 오류가 발생했습니다: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("삭제할 직원을 선택하세요.");
+            }
         }
+
     }
 
     public class ViewModel1
