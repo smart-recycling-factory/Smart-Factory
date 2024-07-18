@@ -11,7 +11,7 @@
     <Border Style="{StaticResource BorderLine}">
         <Grid Margin="10">
             <!-- 추후 내용 들어갈 예정 -->
-            <TextBlock Text="안녕하세요~?" Foreground="White" FontSize="30"
+            <TextBlock Text="스마트 분리수거 공정 라인 개발 완료" Foreground="White" FontSize="30"
                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
     </Border>
