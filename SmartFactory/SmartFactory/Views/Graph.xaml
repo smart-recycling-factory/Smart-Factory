@@ -8,7 +8,11 @@
         mc:Ignorable="d"
         Height="600" Width="840"  Background="Transparent">
 
-    <Border Style="{StaticResource BorderLine}">
+    <Border BorderBrush="#A1C2D5" BorderThickness="1.5" CornerRadius="30" Background="#494351" Margin="5">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#A1C2D5" />
+        </Border.Effect>
+
         <Grid>
             <Grid Margin="10">
                 <Grid.ColumnDefinitions>
@@ -18,6 +22,7 @@
                 <!--<Label Content="그래프 페이지" FontSize="15" Foreground="White" />-->
                 <lvc:PieChart Series="{Binding PieSeries}" Grid.Column="0"/>
                 <lvc:CartesianChart Series="{Binding ColumnSeries}" XAxes="{Binding XAxes}" Grid.Column="1" />
+                <Label x:Name="LblGraphDate" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
             </Grid>
         </Grid>
     </Border>

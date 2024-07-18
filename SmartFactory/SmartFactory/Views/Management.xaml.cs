@@ -121,12 +121,14 @@ namespace SmartFactory.Views
         }
 
     }
-
     public class ViewModel1
     {
         public int red { get; private set; }
         public int green { get; private set; }
         public int blue { get; private set; }
+        public int redToday { get; private set; }
+        public int greenToday { get; private set; }
+        public int blueToday { get; private set; }
 
         public ISeries[] PieSeries { get; private set; }
         public ISeries[] ColumnSeries { get; private set; }
@@ -143,21 +145,24 @@ namespace SmartFactory.Views
 
             ColumnSeries = new ISeries[]
             {
-                new ColumnSeries<double> { Name = "Category 1", Values = new double[] { 0 } },
-                new ColumnSeries<double> { Name = "Category 2", Values = new double[] { 0 } },
-                new ColumnSeries<double> { Name = "Category 3", Values = new double[] { 0 } }
+                new ColumnSeries<double> { Name = "Category", Values = new double[] { 0 } },
             };
 
             XAxes = new Axis[]
             {
                 new Axis
                 {
-                    Labels = new string[] { "Category 1", "Category 2", "Category 3" },
+                    Labels = new string[] { "" },
                     LabelsRotation = 0,
                     SeparatorsPaint = new SolidColorPaint(new SKColor(200, 200, 200)),
-                    TicksPaint = new SolidColorPaint(new SKColor(35, 35, 35))
+                    SeparatorsAtCenter = false,
+                    TicksPaint = new SolidColorPaint(new SKColor(35, 35, 35)),
+                    TicksAtCenter = true,
+                    ForceStepToMin = true,
+                    MinStep = 1
                 }
             };
+
         }
 
         public void get_data_graph()
@@ -168,41 +173,63 @@ namespace SmartFactory.Views
                 {
                     conn.Open();
 
-                    using (var Pcount = new SqlCommand(Models.Result.RESULT_SELECT_PLASTIC, conn))
+                    using (var Pcount = new SqlCommand(Models.Result.RESULT_SELECT_PLASTIC_SUM, conn))
                     {
                         var P_result = Pcount.ExecuteScalar();
                         red = P_result != null ? Convert.ToInt32(P_result) : 0;
                     }
 
-                    using (var Rcount = new SqlCommand(Models.Result.RESULT_SELECT_PAPER, conn))
+                    using (var Rcount = new SqlCommand(Models.Result.RESULT_SELECT_PAPER_SUM, conn))
                     {
                         var R_result = Rcount.ExecuteScalar();
                         green = R_result != null ? Convert.ToInt32(R_result) : 0;
                     }
 
-                    using (var Ccount = new SqlCommand(Models.Result.RESULT_SELECT_CAN, conn))
+                    using (var Ccount = new SqlCommand(Models.Result.RESULT_SELECT_CAN_SUM, conn))
                     {
                         var C_result = Ccount.ExecuteScalar();
                         blue = C_result != null ? Convert.ToInt32(C_result) : 0;
                     }
+
+                    using (var Pcount = new SqlCommand(Models.Result.RESULT_SELECT_PLASTIC, conn))
+                    {
+                        var P_result = Pcount.ExecuteScalar();
+                        redToday = P_result != null ? Convert.ToInt32(P_result) : 0;
+                    }
+
+                    using (var Rcount = new SqlCommand(Models.Result.RESULT_SELECT_PAPER, conn))
+                    {
+                        var R_result = Rcount.ExecuteScalar();
+                        greenToday = R_result != null ? Convert.ToInt32(R_result) : 0;
+                    }
+
+                    using (var Ccount = new SqlCommand(Models.Result.RESULT_SELECT_CAN, conn))
+                    {
+                        var C_result = Ccount.ExecuteScalar();
+                        blueToday = C_result != null ? Convert.ToInt32(C_result) : 0;
+                    }
+
 
                     // PieSeries 업데이트
                     PieSeries = new ISeries[]
                     {
                         new PieSeries<double>
                         {
-                            Values = new double[] { red },
+                            Name = "PLASTIC",
+                            Values = new double[] { red != 0 ? red : double.NaN },
+                            Fill = new SolidColorPaint(SKColors.Blue)
+                        },
+                        new PieSeries<double>
+                        {
+                            Name = "PAPER",
+                            Values = new double[] { green != 0 ? green : double.NaN },
                             Fill = new SolidColorPaint(SKColors.Red)
                         },
                         new PieSeries<double>
                         {
-                            Values = new double[] { green },
+                            Name = "CAN",
+                            Values = new double[] { blue != 0 ? blue : double.NaN },
                             Fill = new SolidColorPaint(SKColors.Green)
-                        },
-                        new PieSeries<double>
-                        {
-                            Values = new double[] { blue },
-                            Fill = new SolidColorPaint(SKColors.Blue)
                         }
                     };
 
@@ -212,17 +239,17 @@ namespace SmartFactory.Views
                         new ColumnSeries<double>
                         {
                             Name = "Plastic",
-                            Values = new double[] { red }
+                            Values = new double[] { redToday }
                         },
                         new ColumnSeries<double>
                         {
                             Name = "Paper",
-                            Values = new double[] { green }
+                            Values = new double[] { greenToday }
                         },
                         new ColumnSeries<double>
                         {
                             Name = "Can",
-                            Values = new double[] { blue }
+                            Values = new double[] { blueToday }
                         }
                     };
                 }
@@ -233,4 +260,7 @@ namespace SmartFactory.Views
             }
         }
     }
+
+
 }
+
