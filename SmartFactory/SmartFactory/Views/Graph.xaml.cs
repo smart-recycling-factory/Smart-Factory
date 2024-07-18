@@ -27,6 +27,8 @@ namespace SmartFactory.Views
             DataContext = ViewModel;
 
             ViewModel.get_data_graph();
+            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            LblGraphDate.Content = today;
         }
 
         // 창 불러올때 서서히 나타나도록
@@ -54,6 +56,7 @@ namespace SmartFactory.Views
 
         public ViewModel()
         {
+
             PieSeries = new ISeries[]
             {
                 new PieSeries<double> { Values = new double[] { 0 } },
@@ -64,15 +67,13 @@ namespace SmartFactory.Views
             ColumnSeries = new ISeries[]
             {
                 new ColumnSeries<double> { Name = "Category 1", Values = new double[] { 0 } },
-                new ColumnSeries<double> { Name = "Category 2", Values = new double[] { 0 } },
-                new ColumnSeries<double> { Name = "Category 3", Values = new double[] { 0 } }
             };
 
             XAxes = new Axis[]
             {
                 new Axis
                 {
-                    Labels = new string[] { "Category 1", "Category 2", "Category 3" },
+                    Labels = new string[] { "" },
                     LabelsRotation = 0,
                     SeparatorsPaint = new SolidColorPaint(new SKColor(200, 200, 200)),
                     TicksPaint = new SolidColorPaint(new SKColor(35, 35, 35))
@@ -111,18 +112,21 @@ namespace SmartFactory.Views
                     {
                         new PieSeries<double>
                         {
-                            Values = new double[] { red },
+                            Name = "PLASTIC",
+                            Values = new double[] { red != 0 ? red : double.NaN },
+                            Fill = new SolidColorPaint(SKColors.Blue)
+                        },
+                        new PieSeries<double>
+                        {
+                            Name = "PAPER",
+                            Values = new double[] { green != 0 ? green : double.NaN },
                             Fill = new SolidColorPaint(SKColors.Red)
                         },
                         new PieSeries<double>
                         {
-                            Values = new double[] { green },
+                            Name = "CAN",
+                            Values = new double[] { blue != 0 ? blue : double.NaN },
                             Fill = new SolidColorPaint(SKColors.Green)
-                        },
-                        new PieSeries<double>
-                        {
-                            Values = new double[] { blue },
-                            Fill = new SolidColorPaint(SKColors.Blue)
                         }
                     };
 
