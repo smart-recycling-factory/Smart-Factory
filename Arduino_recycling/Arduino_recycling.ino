@@ -81,7 +81,7 @@ void loop() {
       // 캔인 경우
       if (metal < 500) {
         // Serial.println("can");
-        delay(1000);
+        // delay(1000);
         servoWork(POS_CAN);
         can_count += 1;
       }
@@ -89,7 +89,7 @@ void loop() {
       else if(is_plastic) {
           // Serial.println("plastic");
           // Serial.println(is_plastic);
-          delay(1000);
+          // delay(1000);
           servoWork(POS_PST);
           pst_count += 1;
       }
@@ -97,7 +97,7 @@ void loop() {
       else {
         // Serial.println("box");
         // Serial.println(is_plastic);
-        delay(1000);
+        // delay(1000);
         servoWork(POS_BOX);
         box_count += 1;
       }
