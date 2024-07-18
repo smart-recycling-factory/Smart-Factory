@@ -58,6 +58,33 @@ namespace SmartFactory.Models
                                                                           , @LoginPw)";
 
         public static readonly string EMPLOYEE_DELETE_QUERY = @"DELETE FROM [dbo].[employee]
-                                                                      WHERE ";
+                                                                      WHERE [employeeId] = @employeeId";
+
+        public static readonly string EMPLOYEE_UPDATE_QUERY = @"UPDATE [dbo].[employee]
+                                                                   SET [name] = name
+                                                                      ,[gender] = gender
+                                                                      ,[email] = email
+                                                                      ,[phone] = phone
+                                                                      ,[address] = address
+                                                                      ,[position] = position
+                                                                      ,[profile] = profile
+                                                                      ,[LoginIdx] = LoginIdx
+                                                                      ,[LoginId] = LoginId
+                                                                      ,[LoginPw] = LoginPw
+                                                                 WHERE [name] = @name";
+
+        public static readonly string EMPLOYEE_SELECT_DETAIL_QUERY = @"SELECT [employeeId]
+                                                                     , [name]
+                                                                     , [gender]
+                                                                     , [email]
+                                                                     , [phone]
+                                                                     , [address]
+                                                                     , [position]
+                                                                     , [profile]
+                                                                     , [LoginIdx]
+                                                                     , [LoginId]
+                                                                     , [LoginPw]
+                                                                  FROM [dbo].[employee]
+                                                                WHERE [name] = @name";
     }
 }
