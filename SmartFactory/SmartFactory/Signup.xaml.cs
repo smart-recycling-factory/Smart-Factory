@@ -32,6 +32,8 @@ namespace SmartFactory
                 SetLoginIdReadOnly(true); // 수정할 때 LoginId를 읽기 전용으로 설정
             }
         }
+
+        // 일반적인 회원가입창
         public Signup()
         {
             InitializeComponent();

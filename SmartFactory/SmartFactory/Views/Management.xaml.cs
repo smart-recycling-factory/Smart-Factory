@@ -19,7 +19,7 @@ namespace SmartFactory.Views
     {
         public ViewModel1 ViewModel1 { get; private set; }
         public ObservableCollection<Employees> Employees { get; set; }
-        private Employees selectedEmployee; // 선택된 직원 변수 추가
+        private Employees selectedEmployee; // 직원 선택 변수
 
         public Management()
         {
@@ -59,6 +59,8 @@ namespace SmartFactory.Views
                 DataSet dSet = new DataSet();
                 adapter.Fill(dSet, "Employees");
 
+                Employees.Clear();
+
                 foreach (DataRow row in dSet.Tables["Employees"].Rows)
                 {
                     Employees.Add(new Employees
@@ -77,7 +79,7 @@ namespace SmartFactory.Views
 
         private void membersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedEmployee = (Employees)membersDataGrid.SelectedItem;
+            selectedEmployee = (Employees)membersDataGrid.SelectedItem; // DataGrid에서 선택한 항목을 selectedEmployee에 저장
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -130,11 +132,6 @@ namespace SmartFactory.Views
             {
                 MessageBox.Show("삭제할 직원을 선택하세요.");
             }
-        }
-
-        private void membersDataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
     public class ViewModel1
