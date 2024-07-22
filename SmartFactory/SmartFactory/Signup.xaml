@@ -71,14 +71,14 @@
                         <TextBlock Grid.Row="6" Text="Email" Style="{StaticResource Text}"/>
                         <TextBlock Grid.Row="7" Text="address" Style="{StaticResource Text}"/>
 
-                        <TextBox x:Name="TxtLoginId" Grid.Column="1" Grid.Row="0" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox x:Name="TxtLoginPwd" Grid.Column="1" Grid.Row="1" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2" />
-                        <TextBox x:Name="TxtName" Grid.Column="1" Grid.Row="2" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2" />
-                        <TextBox x:Name="TxtPosition" Grid.Column="1" Grid.Row="3" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox x:Name="TxtGender" Grid.Column="1" Grid.Row="4" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox x:Name="TxtPhone" Grid.Column="1" Grid.Row="5" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox x:Name="TxtEmail" Grid.Column="1" Grid.Row="6" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2"/>
-                        <TextBox x:Name="TxtAddress" Grid.Column="1" Grid.Row="7" FontSize="18" Foreground="#5F7290" FontWeight="ExtraBold" Height="40" Width="250" Margin="0 10 0 10" Opacity="0.7" Background="Transparent" BorderBrush="#494351" BorderThickness="2"/>
+                        <TextBox x:Name="TxtLoginId" Grid.Column="1" Grid.Row="0" Style="{StaticResource TextBox}" />
+                        <TextBox x:Name="TxtLoginPwd" Grid.Column="1" Grid.Row="1" Style="{StaticResource TextBox}" />
+                        <TextBox x:Name="TxtName" Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBox}" />
+                        <TextBox x:Name="TxtPosition" Grid.Column="1" Grid.Row="3" Style="{StaticResource TextBox}" />
+                        <TextBox x:Name="TxtGender" Grid.Column="1" Grid.Row="4" Style="{StaticResource TextBox}" />
+                        <TextBox x:Name="TxtPhone" Grid.Column="1" Grid.Row="5" Style="{StaticResource TextBox}" />
+                        <TextBox x:Name="TxtEmail" Grid.Column="1" Grid.Row="6" Style="{StaticResource TextBox}" />
+                        <TextBox x:Name="TxtAddress" Grid.Column="1" Grid.Row="7" Style="{StaticResource TextBox}" />
 
                         <Grid Grid.Column="1" Grid.Row="8" Margin="0 40 0 0">
                             <Grid.ColumnDefinitions>
