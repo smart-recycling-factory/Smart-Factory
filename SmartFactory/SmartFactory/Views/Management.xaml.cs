@@ -136,12 +136,12 @@ namespace SmartFactory.Views
     }
     public class ViewModel1
     {
-        public int red { get; private set; }
-        public int green { get; private set; }
-        public int blue { get; private set; }
-        public int redToday { get; private set; }
-        public int greenToday { get; private set; }
-        public int blueToday { get; private set; }
+        public int Plastic { get; private set; }
+        public int Paper { get; private set; }
+        public int Can { get; private set; }
+        public int PlasticToday { get; private set; }
+        public int PaperToday { get; private set; }
+        public int CanToday { get; private set; }
 
         public ISeries[] PieSeries { get; private set; }
         public ISeries[] ColumnSeries { get; private set; }
@@ -189,37 +189,37 @@ namespace SmartFactory.Views
                     using (var Pcount = new SqlCommand(Models.Result.RESULT_SELECT_PLASTIC_SUM, conn))
                     {
                         var P_result = Pcount.ExecuteScalar();
-                        red = P_result != null ? Convert.ToInt32(P_result) : 0;
+                        Plastic = P_result != null ? Convert.ToInt32(P_result) : 0;
                     }
 
                     using (var Rcount = new SqlCommand(Models.Result.RESULT_SELECT_PAPER_SUM, conn))
                     {
                         var R_result = Rcount.ExecuteScalar();
-                        green = R_result != null ? Convert.ToInt32(R_result) : 0;
+                        Paper = R_result != null ? Convert.ToInt32(R_result) : 0;
                     }
 
                     using (var Ccount = new SqlCommand(Models.Result.RESULT_SELECT_CAN_SUM, conn))
                     {
                         var C_result = Ccount.ExecuteScalar();
-                        blue = C_result != null ? Convert.ToInt32(C_result) : 0;
+                        Can = C_result != null ? Convert.ToInt32(C_result) : 0;
                     }
 
                     using (var Pcount = new SqlCommand(Models.Result.RESULT_SELECT_PLASTIC, conn))
                     {
                         var P_result = Pcount.ExecuteScalar();
-                        redToday = P_result != null ? Convert.ToInt32(P_result) : 0;
+                        PlasticToday = P_result != null ? Convert.ToInt32(P_result) : 0;
                     }
 
                     using (var Rcount = new SqlCommand(Models.Result.RESULT_SELECT_PAPER, conn))
                     {
                         var R_result = Rcount.ExecuteScalar();
-                        greenToday = R_result != null ? Convert.ToInt32(R_result) : 0;
+                        PaperToday = R_result != null ? Convert.ToInt32(R_result) : 0;
                     }
 
                     using (var Ccount = new SqlCommand(Models.Result.RESULT_SELECT_CAN, conn))
                     {
                         var C_result = Ccount.ExecuteScalar();
-                        blueToday = C_result != null ? Convert.ToInt32(C_result) : 0;
+                        CanToday = C_result != null ? Convert.ToInt32(C_result) : 0;
                     }
 
 
@@ -229,20 +229,20 @@ namespace SmartFactory.Views
                         new PieSeries<double>
                         {
                             Name = "PLASTIC",
-                            Values = new double[] { red != 0 ? red : double.NaN },
-                            Fill = new SolidColorPaint(SKColors.Blue)
+                            Values = new double[] { Plastic != 0 ? Plastic : double.NaN },
+                            Fill = new SolidColorPaint(SKColor.Parse("#D0E1E9"))
                         },
                         new PieSeries<double>
                         {
                             Name = "PAPER",
-                            Values = new double[] { green != 0 ? green : double.NaN },
-                            Fill = new SolidColorPaint(SKColors.Red)
+                            Values = new double[] { Paper != 0 ? Paper : double.NaN },
+                            Fill = new SolidColorPaint(SKColor.Parse("#A1C2D5"))
                         },
                         new PieSeries<double>
                         {
                             Name = "CAN",
-                            Values = new double[] { blue != 0 ? blue : double.NaN },
-                            Fill = new SolidColorPaint(SKColors.Green)
+                            Values = new double[] { Can != 0 ? Can : double.NaN },
+                            Fill = new SolidColorPaint(SKColor.Parse("#5F7290"))
                         }
                     };
 
@@ -252,17 +252,20 @@ namespace SmartFactory.Views
                         new ColumnSeries<double>
                         {
                             Name = "Plastic",
-                            Values = new double[] { redToday }
+                            Values = new double[] { PlasticToday },
+                            Fill = new SolidColorPaint(SKColor.Parse("#D0E1E9"))
                         },
                         new ColumnSeries<double>
                         {
                             Name = "Paper",
-                            Values = new double[] { greenToday }
+                            Values = new double[] { PaperToday },
+                            Fill = new SolidColorPaint(SKColor.Parse("#A1C2D5"))
                         },
                         new ColumnSeries<double>
                         {
                             Name = "Can",
-                            Values = new double[] { blueToday }
+                            Values = new double[] { CanToday },
+                            Fill = new SolidColorPaint(SKColor.Parse("#5F7290"))
                         }
                     };
                 }
