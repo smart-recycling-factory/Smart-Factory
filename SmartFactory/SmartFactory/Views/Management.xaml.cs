@@ -15,13 +15,11 @@ using SmartFactory.Models;
 
 namespace SmartFactory.Views
 {
-    /// <summary>
-    /// Management.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class Management : UserControl
     {
         public ViewModel1 ViewModel1 { get; private set; }
         public ObservableCollection<Employees> Employees { get; set; }
+        private Employees selectedEmployee; // 선택된 직원 변수 추가
 
         public Management()
         {
@@ -77,12 +75,26 @@ namespace SmartFactory.Views
             }
         }
 
+        private void membersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedEmployee = (Employees)membersDataGrid.SelectedItem;
+        }
+
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            // 수정 로직
-            Signup signup = new Signup(this);
-            signup.ShowDialog();
+            if (selectedEmployee != null)
+            {
+                int employeeId = selectedEmployee.EmployeeId; // 선택된 직원의 ID 가져오기
+
+                Signup signup = new Signup(this, employeeId); // 관리 인스턴스와 직원 ID를 넘기면서 Signup 창을 호출합니다.
+                signup.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("수정할 직원을 선택하세요.");
+            }
         }
+
 
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
@@ -120,6 +132,10 @@ namespace SmartFactory.Views
             }
         }
 
+        private void membersDataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
     public class ViewModel1
     {

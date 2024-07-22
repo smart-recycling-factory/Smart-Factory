@@ -61,17 +61,16 @@ namespace SmartFactory.Models
                                                                       WHERE [employeeId] = @employeeId";
 
         public static readonly string EMPLOYEE_UPDATE_QUERY = @"UPDATE [dbo].[employee]
-                                                                   SET [name] = name
-                                                                      ,[gender] = gender
-                                                                      ,[email] = email
-                                                                      ,[phone] = phone
-                                                                      ,[address] = address
-                                                                      ,[position] = position
-                                                                      ,[profile] = profile
-                                                                      ,[LoginIdx] = LoginIdx
-                                                                      ,[LoginId] = LoginId
-                                                                      ,[LoginPw] = LoginPw
-                                                                 WHERE [name] = @name";
+                                                                   SET [name] = @name
+                                                                      ,[gender] = @gender
+                                                                      ,[email] = @email
+                                                                      ,[phone] = @phone
+                                                                      ,[address] = @address
+                                                                      ,[position] = @position
+                                                                      ,[LoginIdx] = @LoginIdx
+                                                                      ,[LoginId] = @LoginId
+                                                                      ,[LoginPw] = @LoginPw
+                                                                 WHERE [employeeId] = @employeeId";
 
         public static readonly string EMPLOYEE_SELECT_DETAIL_QUERY = @"SELECT [employeeId]
                                                                      , [name]
@@ -85,6 +84,6 @@ namespace SmartFactory.Models
                                                                      , [LoginId]
                                                                      , [LoginPw]
                                                                   FROM [dbo].[employee]
-                                                                WHERE [name] = @name";
+                                                                WHERE [employeeId] = @employeeId";
     }
 }
