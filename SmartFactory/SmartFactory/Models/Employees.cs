@@ -67,7 +67,6 @@ namespace SmartFactory.Models
                                                                       ,[phone] = @phone
                                                                       ,[address] = @address
                                                                       ,[position] = @position
-                                                                      ,[LoginIdx] = @LoginIdx
                                                                       ,[LoginId] = @LoginId
                                                                       ,[LoginPw] = @LoginPw
                                                                  WHERE [employeeId] = @employeeId";
