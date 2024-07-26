@@ -19,7 +19,7 @@
                 <!--<Label Content="그래프 페이지" FontSize="15" Foreground="White" />-->
                 <lvc:PieChart Series="{Binding PieSeries}" Grid.Column="0"/>
                 <lvc:CartesianChart Series="{Binding ColumnSeries}" XAxes="{Binding XAxes}" Grid.Column="1" />
-                <Label x:Name="LblGraphDate" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                <Label x:Name="LblGraphDate" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" />
             </Grid>
         </Grid>
     </Border>
