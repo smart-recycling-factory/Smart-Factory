@@ -40,7 +40,7 @@ namespace SmartFactory.ViewModels
                     Labels = new string[] { "" },
                     LabelsRotation = 0,
                     SeparatorsPaint = new SolidColorPaint(new SKColor(200, 200, 200)),
-                    TicksPaint = new SolidColorPaint(new SKColor(35, 35, 35))
+                    TicksPaint = new SolidColorPaint(new SKColor(255, 255, 255))
                 }
             };
         }
