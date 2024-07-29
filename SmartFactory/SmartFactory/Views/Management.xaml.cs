@@ -101,7 +101,10 @@ namespace SmartFactory.Views
 
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
-            if (membersDataGrid.SelectedItem is Employees selectedEmployee)
+            //if (membersDataGrid.SelectedItem is Employees selectedEmployee)
+            //{
+            var res = MessageBox.Show("삭제하시겠습니까?", "삭제창", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (res == MessageBoxResult.Yes)
             {
                 using (SqlConnection conn = new SqlConnection(Helpers.Common.CONNSTRING))
                 {
@@ -114,12 +117,12 @@ namespace SmartFactory.Views
                             int rowsAffected = cmd.ExecuteNonQuery();
                             if (rowsAffected > 0)
                             {
-                                MessageBox.Show("직원이 성공적으로 삭제되었습니다.");
+                                MessageBox.Show(" 직원이 성공적으로 삭제되었습니다.", "확인", MessageBoxButton.OK, MessageBoxImage.Information);
                                 Employees.Remove(selectedEmployee);
                             }
                             else
                             {
-                                MessageBox.Show("삭제할 직원을 찾을 수 없습니다.");
+                                MessageBox.Show("삭제할 직원을 찾을 수 없습니다.", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
                         }
                     }
@@ -129,10 +132,12 @@ namespace SmartFactory.Views
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("삭제할 직원을 선택하세요.");
-            }
+           
+            //}
+            //else
+            //{
+            //    MessageBox.Show("삭제할 직원을 선택하세요.");
+            //}
         }
     }
 }

@@ -38,7 +38,7 @@ namespace SmartFactory
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty(Common.LogginedId) && Common.IsLogined == true)
+            if (!String.IsNullOrEmpty(Common.LoginedId) && Common.IsLogined == true)
             {
                 BtnLogin.IsEnabled = false;
                 BtnLogout.IsEnabled = true;
@@ -47,7 +47,9 @@ namespace SmartFactory
 
                 BtnHome.IsEnabled = true;
                 BtnGraph.IsEnabled = true;
-                BtnManagement.IsEnabled = true;
+                BtnManagement.IsEnabled = Common.LoginIdx == 0;
+
+                
             }
             else
             {
