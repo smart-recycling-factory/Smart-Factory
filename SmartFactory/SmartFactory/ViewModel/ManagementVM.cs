@@ -129,6 +129,7 @@ namespace SmartFactory.ViewModels
                         new ColumnSeries<double>
                         {
                             Name = "Plastic",
+                            
                             Values = new double[] { PlasticToday },
                             Fill = new SolidColorPaint(SKColor.Parse("#D0E1E9"))
                         },

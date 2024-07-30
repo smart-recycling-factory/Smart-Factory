@@ -13,6 +13,8 @@ namespace SmartFactory.Helpers
 
         public static Boolean IsLogined = false;
 
-        public static String LogginedId = String.Empty;
+        public static String LoginedId = String.Empty;
+
+        public static int LoginIdx = -1;
     }
 }

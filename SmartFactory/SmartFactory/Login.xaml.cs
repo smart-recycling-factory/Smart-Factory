@@ -43,7 +43,8 @@ namespace SmartFactory
                 {
                     conn.Open();
 
-                    string query = @"SELECT COUNT(1) 
+                    // 아이디, 비밀번호가 일치하는 경우의 LoginIdx를 반환
+                    string query = @"SELECT LoginIdx
                                        FROM [dbo].[employee] 
                                       WHERE [LoginId] = @LoginId 
                                         AND [LoginPw] = @LoginPw";
@@ -57,12 +58,14 @@ namespace SmartFactory
                         cmd.Parameters.AddWithValue("@LoginId", LoginId);
                         cmd.Parameters.AddWithValue("@LoginPw", LoginPw);
 
-                        int loginStatus = (int)cmd.ExecuteScalar();
+                        object loginStatus = (int)cmd.ExecuteScalar();
+                        //object result = cmd.ExecuteScalar();
 
-                        if (loginStatus == 1)
+                        if (loginStatus != null)
                         {
-                            Common.LogginedId = LoginId;
+                            Common.LoginedId = LoginId;
                             Common.IsLogined = true; // 로그인 된 상태
+                            Common.LoginIdx = Convert.ToInt32(loginStatus); // LoginIdx 설정
 
                             this.Hide();
                             MainWindow mainWindow = new MainWindow();
@@ -87,9 +90,12 @@ namespace SmartFactory
             TxtId.Focus();
         }
 
+        // 로그인 창 닫기
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.ShowDialog();
         }
 
         #region 엔터키
@@ -110,11 +116,5 @@ namespace SmartFactory
             }
         }
         #endregion
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        // 로그인 창 닫기
     }
 }

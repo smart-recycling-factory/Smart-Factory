@@ -89,7 +89,7 @@ namespace SmartFactory
         // 취소 버튼 클릭
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Common.LogginedId) && Common.IsLogined == true)
+            if (!string.IsNullOrEmpty(Common.LoginedId) && Common.IsLogined == true)
             {
                 this.Close();
             }
@@ -115,7 +115,7 @@ namespace SmartFactory
             if (SignUpProcess())
             {
                 Close();
-                if (string.IsNullOrEmpty(Common.LogginedId) || !Common.IsLogined)
+                if (string.IsNullOrEmpty(Common.LoginedId) || !Common.IsLogined)
                 {
                     var login = new Login();
                     login.ShowDialog();
@@ -147,7 +147,7 @@ namespace SmartFactory
             string LoginPw = TxtLoginPwd.Text;
             int LoginIdx = 0;
 
-            if (!string.IsNullOrEmpty(Common.LogginedId) && Common.IsLogined == true)
+            if (!string.IsNullOrEmpty(Common.LoginedId) && Common.IsLogined == true)
             {
                 try
                 {
@@ -194,6 +194,17 @@ namespace SmartFactory
                     {
                         conn.Open();
 
+                        // 등록자 수
+                        string countQuery = @"SELECT COUNT(*)
+                                                FROM employee";
+
+                        using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
+                        {
+                            int userCount = (int)countCmd.ExecuteScalar();
+                            LoginIdx = (userCount == 0) ? 0 : 1;
+                        }
+
+                        // 아이디 중복여부 확인
                         string checkQuery = @"SELECT COUNT(*) 
                                             FROM employee
                                             WHERE LoginId = @LoginId";

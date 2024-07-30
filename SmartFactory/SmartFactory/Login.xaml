@@ -54,7 +54,7 @@
                         <iconPcks:PackIconMaterial Kind="Battery" />
                     </Button>
 
-                    <Button Command="{Binding CloseCommand}" ToolTip="Close"
+                    <Button x:Name="BtnClose" Command="{Binding CloseCommand}" ToolTip="Close"
                             Height="30" Width="30" Margin="0, 15, 15, 0"
                             HorizontalAlignment="Right" VerticalAlignment="Top"
                             Click="BtnClose_Click">
