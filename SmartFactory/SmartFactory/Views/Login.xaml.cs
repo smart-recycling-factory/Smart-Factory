@@ -93,6 +93,9 @@ namespace SmartFactory
         // 로그인 창 닫기
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
+            Common.LoginedId = string.Empty;
+            Common.IsLogined = false;
+
             this.Close();
             MainWindow mainWindow = new MainWindow();
             mainWindow.ShowDialog();

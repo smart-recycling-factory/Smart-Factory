@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:SmartFactory"
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Views/MainWindow.xaml">
 
     <Application.Resources>
 
